@@ -5,7 +5,7 @@
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
-      app
+      apps
     >
       <v-list>
         <v-list-tile
@@ -28,7 +28,7 @@
       <v-toolbar-side-icon @click="drawer = !drawer" />
     </v-toolbar>
     <v-footer :fixed="fixed" app>
-      <span>&copy; Daniel Kaufmann 2019</span>
+      <span> &copy; Daniel Kaufmann 2019</span>
     </v-footer>
   </v-app>
 </template>
