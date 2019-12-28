@@ -75,6 +75,11 @@ export default {
       }
     }
   },
+  pwa: {
+    meta: {
+      name: process.env.DEFAULT_TITLE
+    }
+  },
   /*
    ** Build configuration
    */
