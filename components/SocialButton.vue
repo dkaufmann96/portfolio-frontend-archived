@@ -1,5 +1,6 @@
 <template>
   <BaseButton
+    :name="name"
     :fab="true"
     :dark-mode="darkMode"
     :icon="`mdi-${type}`"
@@ -7,7 +8,7 @@
   ></BaseButton>
 </template>
 <script>
-import BaseButton from "./BaseButton";
+import BaseButton from './BaseButton'
 export default {
   components: {
     BaseButton
@@ -23,5 +24,5 @@ export default {
       default: null
     }
   }
-};
+}
 </script>

@@ -1,5 +1,6 @@
 <template
   ><BaseButton
+    :name="name"
     :fab="true"
     :dark-mode="darkMode"
     :icon="iconComputed"
@@ -7,7 +8,7 @@
   ></BaseButton>
 </template>
 <script>
-import BaseButton from "./BaseButton";
+import BaseButton from './BaseButton'
 export default {
   components: {
     BaseButton
@@ -15,8 +16,8 @@ export default {
   extends: BaseButton,
   computed: {
     iconComputed() {
-      return this.darkMode ? "mdi-weather-sunny" : "mdi-weather-night";
+      return this.darkMode ? 'mdi-weather-sunny' : 'mdi-weather-night'
     }
   }
-};
+}
 </script>
