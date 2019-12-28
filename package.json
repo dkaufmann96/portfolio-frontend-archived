@@ -8,7 +8,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate",
+    "generate": "nuxt generate && scp -r dist e75966@e75966-ssh.services.easyname.eu:/data/web/e75966/html/",
     "lint": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
     "test": "jest"
   },
