@@ -1,13 +1,7 @@
 <template v-slot:activator
-  ><v-btn
-    :name="name"
-    :dark="darkMode"
-    :fab="fab"
-    :href="href"
-    @click="$emit('click')"
-  >
-    <v-icon>{{ icon }}</v-icon>
-  </v-btn>
+  ><v-icon :name="name" :dark="darkMode" :href="href" @click="$emit('click')">
+    {{ icon }}
+  </v-icon>
 </template>
 <script>
 export default {
@@ -19,10 +13,6 @@ export default {
     darkMode: {
       type: Boolean,
       default: true
-    },
-    fab: {
-      type: Boolean,
-      default: false
     },
     icon: {
       type: String,
