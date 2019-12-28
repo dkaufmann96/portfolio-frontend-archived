@@ -1,7 +1,6 @@
 <template
   ><BaseButton
     :name="name"
-    :fab="true"
     :dark-mode="darkMode"
     :icon="iconComputed"
     @click="$emit('darkModeSet', !darkMode)"

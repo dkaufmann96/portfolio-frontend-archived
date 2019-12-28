@@ -1,52 +1,52 @@
 <template>
   <v-app :dark="darkModeComputed">
+    <DarkModeButton
+      name="dark-mode"
+      class="mt-2"
+      :dark-mode="darkMode"
+      @darkModeSet="darkMode = $event"
+    ></DarkModeButton>
     <v-container>
-      <v-speed-dial direction="bottom" left fixed open-on-hover>
-        <template v-slot:activator>
-          <BaseButton
-            fab
-            :dark-mode="darkMode"
-            icon="mdi-dots-horizontal"
-          ></BaseButton>
-        </template>
-        <SocialButton
-          v-for="(social, key) in socials"
-          :key="key"
-          :name="social.name"
-          :type="social.icon"
-          :link="social.link"
-          :dark-mode="darkMode"
-        ></SocialButton>
-        <DarkModeButton
-          name="dark-mode"
-          :dark-mode="darkMode"
-          @darkModeSet="darkMode = $event"
-        ></DarkModeButton>
-      </v-speed-dial>
       <v-card class="mx-auto">
         <v-card-title>Hello!</v-card-title>
         <v-card-text
           >This page is currently under construction, and will soon be
-          available. In the meantime, you can check out my social media profiles
-          on the left!
+          available. In the meantime, you can check out my social media
+          profiles!
         </v-card-text>
       </v-card>
     </v-container>
-    <v-footer :fixed="fixed" app>
-      <span> &copy; Daniel Kaufmann 2019</span>
+
+    <v-footer absolute padless>
+      <v-card flat tile width="100%" class="text-center">
+        <v-card-text>
+          <SocialButton
+            v-for="(social, key) in socials"
+            :key="key"
+            :name="social.name"
+            :type="social.icon"
+            :link="social.link"
+            :dark-mode="darkMode"
+          ></SocialButton>
+        </v-card-text>
+
+        <v-divider></v-divider>
+
+        <v-card-text>
+          &copy; Daniel Kaufmann {{ new Date().getFullYear() }}
+        </v-card-text>
+      </v-card>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-import DarkModeButton from '@/components/DarkModeButton.vue'
 import SocialButton from '@/components/SocialButton'
-import BaseButton from '@/components/BaseButton'
+import DarkModeButton from '@/components/DarkModeButton'
 export default {
   components: {
-    DarkModeButton,
     SocialButton,
-    BaseButton
+    DarkModeButton
   },
   data() {
     return {
@@ -76,6 +76,11 @@ export default {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
         return (this.$vuetify.theme.dark = false)
       }
+    }
+  },
+  head() {
+    return {
+      title: 'Home'
     }
   }
 }
