@@ -6,8 +6,7 @@
       :dark-mode="darkMode"
       @darkModeSet="darkMode = $event"
     ></DarkModeButton>
-    <CookieControl locale="de" />
-    <v-container>
+    <v-container class="text-center">
       <v-card class="mx-auto">
         <v-card-title>Hello!</v-card-title>
         <v-card-text
@@ -16,6 +15,26 @@
           profiles!
         </v-card-text>
       </v-card>
+      <ButtonCircleCollection class="mt-5">
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+        <li><CookieControl /></li>
+      </ButtonCircleCollection>
+      <ButtonCircleCollection>
+        <SocialButton
+          v-for="(social, key) in socials"
+          :key="key"
+          :name="social.name"
+          :type="social.icon"
+          :link="social.link"
+          :dark-mode="darkMode"
+        ></SocialButton>
+      </ButtonCircleCollection>
     </v-container>
     <v-footer absolute padless>
       <v-card flat tile width="100%" class="text-center">
@@ -29,7 +48,6 @@
             :dark-mode="darkMode"
           ></SocialButton>
         </v-card-text>
-
         <v-divider></v-divider>
 
         <v-card-text>
@@ -43,12 +61,15 @@
 <script>
 import SocialButton from '@/components/SocialButton'
 import DarkModeButton from '@/components/DarkModeButton'
+import ButtonCircleCollection from '@/components/ButtonCircleCollection'
 import CookieControl from '@/components/CookieControl'
+
 export default {
   components: {
     SocialButton,
     DarkModeButton,
-    CookieControl
+    CookieControl,
+    ButtonCircleCollection
   },
   data() {
     return {
