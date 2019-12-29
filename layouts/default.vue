@@ -6,6 +6,7 @@
       :dark-mode="darkMode"
       @darkModeSet="darkMode = $event"
     ></DarkModeButton>
+    <CookieControl locale="de" />
     <v-container>
       <v-card class="mx-auto">
         <v-card-title>Hello!</v-card-title>
@@ -16,7 +17,6 @@
         </v-card-text>
       </v-card>
     </v-container>
-
     <v-footer absolute padless>
       <v-card flat tile width="100%" class="text-center">
         <v-card-text>
@@ -43,10 +43,12 @@
 <script>
 import SocialButton from '@/components/SocialButton'
 import DarkModeButton from '@/components/DarkModeButton'
+import CookieControl from '@/components/CookieControl'
 export default {
   components: {
     SocialButton,
-    DarkModeButton
+    DarkModeButton,
+    CookieControl
   },
   data() {
     return {
