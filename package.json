@@ -21,8 +21,10 @@
     }
   },
   "dependencies": {
+    "@dkaufmann96/nuxtjs-google-gtag": "git+https://github.com/dkaufmann96/nuxtjs-google-gtag.git",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "cookie-universal-nuxt": "^2.1.0",
     "nuxt": "^2.11.0"
   },
   "devDependencies": {

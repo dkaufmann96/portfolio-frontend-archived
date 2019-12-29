@@ -47,7 +47,9 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@dkaufmann96/nuxtjs-google-gtag',
+    'cookie-universal-nuxt'
   ],
   /*
    ** Axios module configuration
@@ -79,6 +81,15 @@ export default {
     meta: {
       name: process.env.DEFAULT_TITLE
     }
+  },
+  'google-gtag': {
+    id: 'UA-148069913-1',
+    config: {
+      anonymize_ip: true, // anonymize IP
+      send_page_view: false // might be necessary to avoid duplicated page track on page reload
+    },
+    debug: true, // enable to track in dev mode
+    disableAutoPageTrack: false // disable if you don't want to track each page route with router.afterEach(...).
   },
   /*
    ** Build configuration
