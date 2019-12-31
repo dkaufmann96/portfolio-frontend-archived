@@ -22,6 +22,11 @@ export default {
       type: String,
       default: null
     }
+  },
+  methods: {
+    followLink() {
+      window.location.href = this.link
+    }
   }
 }
 </script>
