@@ -1,12 +1,13 @@
 <template>
   <v-app :dark="darkModeComputed">
-    <DarkModeButton
-      name="dark-mode"
-      class="mt-2"
-      :dark-mode="darkMode"
-      @darkModeSet="darkMode = $event"
-    ></DarkModeButton>
-    <CookieControl locale="de" />
+    <span class="mt-2 text-center">
+      <DarkModeButton
+        name="dark-mode"
+        :dark-mode="darkMode"
+        @darkModeSet="darkMode = $event"
+      ></DarkModeButton>
+      <CookieControl />
+    </span>
     <v-container>
       <v-card class="mx-auto">
         <v-card-title>Hello!</v-card-title>
