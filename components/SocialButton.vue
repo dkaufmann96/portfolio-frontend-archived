@@ -1,21 +1,11 @@
 <template>
-  <a :href="link" class="icon">
-    <BaseButton
-      :name="name"
-      :dark-mode="darkMode"
-      :icon="`mdi-${type}`"
-    ></BaseButton>
-  </a>
+  <BaseButton
+    :name="name"
+    :dark-mode="darkMode"
+    :icon="`mdi-${type}`"
+    @click="followLink"
+  ></BaseButton>
 </template>
-<style scoped>
-.icon {
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  text-decoration: none;
-  color: none;
-}
-</style>
 <script>
 import BaseButton from './BaseButton'
 export default {
@@ -31,6 +21,11 @@ export default {
     link: {
       type: String,
       default: null
+    }
+  },
+  methods: {
+    followLink() {
+      window.location.href = this.link
     }
   }
 }

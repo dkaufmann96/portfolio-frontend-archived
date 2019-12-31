@@ -1,31 +1,8 @@
 <template>
   <v-app :dark="darkModeComputed">
-    <DarkModeButton
-      name="dark-mode"
-      class="mt-2"
-      :dark-mode="darkMode"
-      @darkModeSet="darkMode = $event"
-    ></DarkModeButton>
-    <v-container class="text-center">
-      <v-card class="mx-auto">
-        <v-card-title>Hello!</v-card-title>
-        <v-card-text
-          >This page is currently under construction, and will soon be
-          available. In the meantime, you can check out my social media
-          profiles!
-        </v-card-text>
-      </v-card>
+    <v-container class="text-center p-container">
       <ButtonCircleCollection class="mt-5">
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-        <li><CookieControl /></li>
-      </ButtonCircleCollection>
-      <ButtonCircleCollection>
+        <CookieControl v-for="n in 20" :key="n" />
         <SocialButton
           v-for="(social, key) in socials"
           :key="key"
@@ -34,22 +11,15 @@
           :link="social.link"
           :dark-mode="darkMode"
         ></SocialButton>
+        <DarkModeButton
+          name="dark-mode"
+          :dark-mode="darkMode"
+          @darkModeSet="darkMode = $event"
+        ></DarkModeButton>
       </ButtonCircleCollection>
     </v-container>
     <v-footer absolute padless>
       <v-card flat tile width="100%" class="text-center">
-        <v-card-text>
-          <SocialButton
-            v-for="(social, key) in socials"
-            :key="key"
-            :name="social.name"
-            :type="social.icon"
-            :link="social.link"
-            :dark-mode="darkMode"
-          ></SocialButton>
-        </v-card-text>
-        <v-divider></v-divider>
-
         <v-card-text>
           &copy; Daniel Kaufmann {{ new Date().getFullYear() }}
         </v-card-text>
@@ -85,6 +55,19 @@ export default {
           name: 'xing',
           icon: 'xing',
           link: '//www.xing.com/profile/Daniel_Kaufmann87'
+        },
+        linkedin: {
+          name: 'linkedin',
+          icon: 'linkedin',
+          link: '//www.xing.com/profile/Daniel_Kaufmann87'
+        },
+        twitter: {
+          name: 'twitter',
+          icon: 'twitter'
+        },
+        gitlab: {
+          name: 'gitlab',
+          icon: 'gitlab'
         }
       }
     }
