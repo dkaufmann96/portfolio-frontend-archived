@@ -65,6 +65,11 @@ export default {
           name: 'xing',
           icon: 'xing',
           link: '//www.xing.com/profile/Daniel_Kaufmann87'
+        },
+        linkedin: {
+          name: 'linkedin',
+          icon: 'linkedin',
+          link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/'
         }
       }
     }
