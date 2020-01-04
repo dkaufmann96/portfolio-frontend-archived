@@ -2,7 +2,7 @@
   <v-app :dark="darkModeComputed">
     <v-container class="text-center p-container">
       <ButtonCircleCollection class="mt-5">
-        <CookieControl v-for="n in 20" :key="n" />
+        <CookieControl />
         <SocialButton
           v-for="(social, key) in socials"
           :key="key"

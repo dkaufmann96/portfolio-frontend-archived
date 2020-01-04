@@ -1,33 +1,54 @@
 <template>
-  <div>
-    <ul class="circle-container mx-auto">
-      <slot></slot>
-    </ul>
+  <div class="button-container mx-auto my-auto">
+    <slot></slot>
   </div>
 </template>
 <style lang="scss">
-.circle-container {
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-}
-.list-item {
-  list-style: none;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  border-radius: 50%;
+.button-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-flow: column;
+  align-items: center;
+  & > .odd {
+    margin-left: 92px;
+  }
+}
+.hexagon {
+  width: 100px;
+  height: 55px;
+  background: grey;
+  position: relative;
+  display: inline-block;
+  margin: 0.1rem 0.1em 1.5rem 0.1em;
   opacity: 0.8;
 }
-.list-item * {
+.hexagon:before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-bottom: 25px solid grey;
+}
+.hexagon:after {
+  content: '';
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-left: 50px solid transparent;
+  border-right: 50px solid transparent;
+  border-top: 25px solid grey;
+}
+.hexagon * {
   padding: 0 !important;
   margin: 0 !important;
   font-size: 50px !important;
 }
-.list-item:hover {
+.hexagon:hover {
   opacity: 1;
 }
 </style>
@@ -35,7 +56,13 @@
 export default {
   computed: {
     elements() {
-      return this.$slots.default.filter((element) => element.tag !== undefined)
+      this.$slots.default
+        .filter((element) => element.tag !== undefined)
+        .forEach((element) => {
+          element = this.addParentListElement(element.elm)
+          return element
+        })
+      return [...document.getElementsByClassName('hexagon')]
     },
     elementsInOneCircle() {
       return this.elements.length > 10
@@ -44,63 +71,49 @@ export default {
     }
   },
   mounted() {
-    this.updateCircle()
+    const chunks = this.chunkArray(this.elements, 4)
+    for (let [elementIndex, elementArray] of Object.entries(chunks)) {
+      if (elementIndex % 2 === 0) {
+        this.wrapElementsInRow(elementArray, true)
+      } else {
+        this.wrapElementsInRow(elementArray, false)
+      }
+    }
+
+    this.$slots.default = this.elements
   },
   methods: {
-    updateCircle() {
-      console.log(this.elements)
-      console.log(this.elementsInOneCircle)
-      const mod = this.elements.length % this.elementsInOneCircle
-      const parts = (this.elements.length - mod) / this.elementsInOneCircle
-      const length = (this.elements.length - mod) / parts
-      for (let j = 1; j <= parts; j++) {
-        for (let i = length * (j - 1); i < length * j; i++) {
-          this.addParentListElement(this.elements[i].elm)
-          if (i > 0) {
-            this.applyTransformation(
-              this.elements[i].elm,
-              this.calculateTransformation(length, i),
-              this.elementsInOneCircle * j * 8
-            )
-          }
-        }
-        for (
-          let i = this.elements.length - mod;
-          i < this.elements.length;
-          i++
-        ) {
-          this.addParentListElement(this.elements[i].elm)
-          if (i > 0) {
-            this.applyTransformation(
-              this.elements[i].elm,
-              this.calculateTransformation(length, i),
-              this.elementsInOneCircle * j * 8
-            )
-          }
-        }
-      }
-
-      this.$slots.default = this.elements
-    },
     addParentListElement(element) {
-      const listElement = document.createElement('li')
-      this.wrap(element, listElement)
-      element.parentElement.className = 'list-item'
-    },
-    calculateTransformation(amountOfElements, index) {
-      const offsetAngle = 360 / amountOfElements
-      return offsetAngle * index
-    },
-    applyTransformation(element, angle, translation) {
-      const transform = `rotate(${angle}deg)
-                             translate(0,-${translation}px)
-                             rotate(-${angle}deg)`
+      const div = document.createElement('div')
 
-      element.parentElement.style.transform = transform
+      this.wrap(element, div)
+      element.parentElement.className = 'hexagon'
+      return element
+    },
+    wrapElementsInRow(elements, even) {
+      const row = document.createElement('div')
+      row.className = even ? 'row even' : 'row odd'
+      elements.forEach((element) => {
+        element.parentNode.removeChild(element)
+        row.appendChild(element)
+      })
+      document.getElementsByClassName('button-container')[0].appendChild(row)
     },
     wrap(el, wrapper) {
       el.parentNode.insertBefore(wrapper, el)
       wrapper.appendChild(el)
+    },
+    chunkArray(myArray, chunk_size) {
+      var index = 0
+      var arrayLength = myArray.length
+      var tempArray = []
+
+      for (index = 0; index < arrayLength; index += chunk_size) {
+        const myChunk = myArray.slice(index, index + chunk_size)
+        tempArray.push(myChunk)
+      }
+
+      return tempArray.reverse()
     }
   }
 }
