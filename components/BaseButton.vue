@@ -1,28 +1,12 @@
-<template v-slot:activator>
-  <a v-if="link" :href="link" class="icon">
-    <v-icon :name="name" :dark="darkMode" @click="$emit('click')">
-      {{ icon }}
-    </v-icon>
-  </a>
-  <v-icon
-    v-else
-    class="icon"
+<template>
+  <v-btn
     :name="name"
-    :dark="darkMode"
+    :dark-mode="darkMode"
+    :color="color"
     @click="$emit('click')"
+    >{{ label }}</v-btn
   >
-    {{ icon }}
-  </v-icon>
 </template>
-<style scoped>
-.icon {
-  padding: 10px;
-  font-size: 30px;
-  text-align: center;
-  text-decoration: none;
-  color: none;
-}
-</style>
 <script>
 export default {
   props: {
@@ -30,18 +14,18 @@ export default {
       type: String,
       default: 'button'
     },
-    link: {
-      type: String,
-      required: false,
-      default: null
-    },
     darkMode: {
       type: Boolean,
       default: true
     },
-    icon: {
+    label: {
       type: String,
-      default: null
+      required: true
+    },
+    color: {
+      type: String,
+      required: false,
+      default: 'gray'
     }
   }
 }

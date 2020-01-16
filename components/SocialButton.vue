@@ -1,18 +1,18 @@
 <template>
-  <BaseButton
+  <BaseIconButton
     :name="name"
     :dark-mode="darkMode"
     :icon="`mdi-${type}`"
     :link="link"
-  ></BaseButton>
+  ></BaseIconButton>
 </template>
 <script>
-import BaseButton from './BaseButton'
+import BaseIconButton from './BaseIconButton'
 export default {
   components: {
-    BaseButton
+    BaseIconButton
   },
-  extends: BaseButton,
+  extends: BaseIconButton,
   props: {
     type: {
       type: String,
