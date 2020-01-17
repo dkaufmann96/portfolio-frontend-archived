@@ -61,7 +61,7 @@ export default {
       analytics:
         this.$cookies.get('optional-cookies') !== undefined
           ? this.$cookies.get('optional-cookies').activated
-          : false,
+          : true,
       settingsOpened: false
     }
   },
