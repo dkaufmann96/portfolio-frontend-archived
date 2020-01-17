@@ -1,29 +1,6 @@
 <template>
   <v-app :dark="darkModeComputed">
-    <span class="mt-2 text-center">
-      <DarkModeButton
-        name="dark-mode"
-        :dark-mode="darkMode"
-        @darkModeSet="darkMode = $event"
-      ></DarkModeButton>
-      <CookieControl />
-    </span>
-    <v-container>
-    <DarkModeButton
-      name="dark-mode"
-      class="mt-2"
-      :dark-mode="darkMode"
-      @darkModeSet="darkMode = $event"
-    ></DarkModeButton>
-    <v-container class="text-center">
-      <v-card class="mx-auto">
-        <v-card-title>Hello!</v-card-title>
-        <v-card-text
-          >This page is currently under construction, and will soon be
-          available. In the meantime, you can check out my social media
-          profiles!
-        </v-card-text>
-      </v-card>
+    <v-container class="text-center p-container">
       <ButtonCircleCollection class="mt-5">
         <CookieControl />
         <SocialButton
