@@ -1,7 +1,9 @@
 <template>
-  <v-dialog v-model="dialog" persistent max-width="500">
+  <v-dialog v-model="dialog" persistent width="500">
     <v-card>
-      <v-card-title class="headline">This website uses cookies</v-card-title>
+      <v-card-title class="headline" primary-title
+        >This website uses cookies</v-card-title
+      >
       <v-card-text
         >This website uses cookies in order to make it as user-friendly as
         possible and to offer you the best possible service. If you click on
@@ -40,6 +42,11 @@
     </v-card>
   </v-dialog>
 </template>
+<style scoped>
+.headline {
+  word-break: normal !important;
+}
+</style>
 <script>
 import BaseButton from './BaseButton'
 
@@ -54,7 +61,7 @@ export default {
       analytics:
         this.$cookies.get('optional-cookies') !== undefined
           ? this.$cookies.get('optional-cookies').activated
-          : false,
+          : true,
       settingsOpened: false
     }
   },
