@@ -3,7 +3,11 @@
     <div v-if="!splitMode" class="hexagon-container">
       <slot :splitHexagon="splitHexagon" :uniteHexagon="uniteHexagon"></slot>
     </div>
-    <v-container v-show="splitMode" id="content-wrapper">
+    <v-container
+      v-show="splitMode"
+      id="content-wrapper"
+      class="text-center p-container my-auto"
+    >
       <div id="top" class="hexagon-container"></div>
       <slot name="content"></slot>
       <div id="bottom" class="hexagon-container"></div>

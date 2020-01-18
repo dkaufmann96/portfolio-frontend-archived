@@ -6,8 +6,8 @@
   --hex-icon: 50px;
 
   @media only screen and (max-width: 768px) {
-    --hex-width: 70px;
-    --hex-between: 2px;
+    --hex-width: 80px;
+    --hex-between: 5px;
     --hex-icon: 15px;
   }
 
@@ -40,6 +40,8 @@
   grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
+  margin-left:-45px;
+
 }
 .hexagon {
   align-items: center;
