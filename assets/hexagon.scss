@@ -5,6 +5,12 @@
   --hex-between: 5px;
   --hex-icon: 50px;
 
+  @media only screen and (max-width: 768px) {
+    --hex-width: 70px;
+    --hex-between: 2px;
+    --hex-icon: 15px;
+  }
+
   /* Other hexagon dimentions */
   --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
   --hex-margin: calc(var(--hex-width) / 2);
@@ -13,7 +19,11 @@
 
   /* Colors */
   --color-hex-default: #000000;
-  --color-hex-hover: #ffffff;
+  --color-home: #a30b0b;
+  --color-about: #284eb6;
+  --color-projects: #279141;
+  --color-darkmode-light: #c8cedf;
+  --color-darkmode-dark: #27282c9c;
   --color-github: #24292e;
   --color-gitlab:#6610f2;
   --color-linkedin: #0077b5;
@@ -43,7 +53,10 @@
   position: relative;
   transition: var(--hex-transition);
   width: var(--hex-width);
-  opacity:0.8
+  opacity:0.8;
+  .showText{
+    display: none;
+  }
 }
 
 .v-icon.v-icon{
@@ -74,6 +87,27 @@
   opacity:1;
 }
 
+.hexagon:hover {
+  .showIcon{
+    display:none;
+  }
+  .showText{
+    display:block;
+    text-decoration: none;
+    color:#ffff;
+  }
+}
+
+.hexagon.splitTop{
+  top:0;
+  position: absolute;
+}
+
+.hexagon.splitBottom{
+  bottom:0;
+  position: absolute;
+}
+
 .hexagon:nth-child(8n + 5),
 .hexagon:nth-child(8n + 6),
 .hexagon:nth-child(8n + 7),
@@ -84,6 +118,51 @@
 .hexagon > svg {
   height: 75%;
   transition: var(--hex-transition);
+}
+
+.color-home {
+  background-color: var(--color-home);
+}
+.color-home::after,
+.color-home::before {
+  border-top-color: var(--color-home);
+  border-bottom-color: var(--color-home);
+}
+
+.color-about {
+  background-color: var(--color-about);
+}
+.color-about::after,
+.color-about::before {
+  border-top-color: var(--color-about);
+  border-bottom-color: var(--color-about);
+}
+
+.color-projects {
+  background-color: var(--color-projects);
+}
+.color-projects::after,
+.color-projects::before {
+  border-top-color: var(--color-projects);
+  border-bottom-color: var(--color-projects);
+}
+
+.color-darkmode-light {
+  background-color: var(--color-darkmode-light);
+}
+.color-darkmode-light::after,
+.color-darkmode-light::before {
+  border-top-color: var(--color-darkmode-light);
+  border-bottom-color: var(--color-darkmode-light);
+}
+
+.color-darkmode-dark {
+  background-color: var(--color-darkmode-dark);
+}
+.color-darkmode-dark::after,
+.color-darkmode-dark::before {
+  border-top-color: var(--color-darkmode-dark);
+  border-bottom-color: var(--color-darkmode-dark);
 }
 
 .color-github {

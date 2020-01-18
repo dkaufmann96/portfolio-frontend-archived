@@ -1,34 +1,49 @@
 <template>
-  <div class="mx-auto my-auto hexagon-container">
-    <slot></slot>
+  <div>
+    <div v-if="!splitMode" class="hexagon-container">
+      <slot :splitHexagon="splitHexagon" :uniteHexagon="uniteHexagon"></slot>
+    </div>
+    <v-container v-show="splitMode" id="content-wrapper">
+      <div id="top" class="hexagon-container"></div>
+      <slot name="content"></slot>
+      <div id="bottom" class="hexagon-container"></div>
+    </v-container>
   </div>
 </template>
 <script>
 export default {
-  computed: {
-    elements() {
-      this.$slots.default
-        .filter((element) => element.tag !== undefined)
-        .forEach((element) => {
-          element = this.addParentListElement(element)
-          return element
-        })
-      return [...document.getElementsByClassName('hexagon')]
+  name: 'ButtonCircleCollection',
+  data() {
+    return {
+      splitMode: false
     }
   },
-  mounted() {
-    this.$slots.default = this.elements
-  },
   methods: {
-    addParentListElement(element) {
-      const div = document.createElement('div')
-      this.wrap(element.elm, div)
-      element.elm.parentElement.className = `hexagon color-${element.data.key}`
-      return element
+    uniteHexagon() {
+      const top = document.getElementById('top')
+      const bottom = document.getElementById('bottom')
+      while (top.lastChild) {
+        top.removeChild(top.lastChild)
+      }
+      while (bottom.lastChild) {
+        bottom.removeChild(bottom.lastChild)
+      }
+      this.splitMode = false
     },
-    wrap(el, wrapper) {
-      el.parentNode.insertBefore(wrapper, el)
-      wrapper.appendChild(el)
+    splitHexagon() {
+      this.splitMode = true
+
+      const elements = document.getElementsByClassName('hexagon')
+      const top = document.getElementById('top')
+      const bottom = document.getElementById('bottom')
+      if (top.hasChildNodes()) {
+        return
+      }
+      for (let [index, element] of Object.entries(elements)) {
+        index < elements.length / 2
+          ? top.appendChild(element)
+          : bottom.appendChild(element)
+      }
     }
   }
 }
