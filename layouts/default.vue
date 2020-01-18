@@ -3,6 +3,9 @@
     <v-container class="text-center p-container mt-5" fluid>
       <h1>Daniel Kaufmann</h1>
       <h2>Software Engineer in Vienna, Austria</h2>
+      <v-alert class="mt-5">
+        Hinweis: Diese Seite ist noch in Arbeit und wird laufend erweitert.
+      </v-alert>
     </v-container>
     <v-container class="text-center p-container my-auto" fluid>
       <ButtonCircleCollection class="p-container">
