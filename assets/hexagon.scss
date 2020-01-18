@@ -22,6 +22,8 @@
   --color-home: #a30b0b;
   --color-about: #284eb6;
   --color-projects: #279141;
+  --color-contact: #467ffa;
+  --color-imprint: #0e78a1;
   --color-darkmode-light: #c8cedf;
   --color-darkmode-dark: #27282c9c;
   --color-github: #24292e;
@@ -147,6 +149,24 @@
 .color-projects::before {
   border-top-color: var(--color-projects);
   border-bottom-color: var(--color-projects);
+}
+
+.color-contact {
+  background-color: var(--color-contact);
+}
+.color-contact::after,
+.color-contact::before {
+  border-top-color: var(--color-contact);
+  border-bottom-color: var(--color-contact);
+}
+
+.color-imprint {
+  background-color: var(--color-imprint);
+}
+.color-imprint::after,
+.color-imprint::before {
+  border-top-color: var(--color-imprint);
+  border-bottom-color: var(--color-imprint);
 }
 
 .color-darkmode-light {

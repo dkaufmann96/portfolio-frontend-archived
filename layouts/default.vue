@@ -89,7 +89,7 @@ export default {
         imprint: {
           name: 'imprint',
           label: 'Impressum',
-          icon: 'iframe-outline',
+          icon: 'information-variant',
           link: '/imprint'
         }
       },
