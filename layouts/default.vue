@@ -1,7 +1,7 @@
 <template>
   <v-app :dark="darkModeComputed">
     <v-container class="text-center p-container my-auto" fluid>
-      <ButtonCircleCollection class="mx-auto my-5">
+      <ButtonCircleCollection class="p-container my-5">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
@@ -22,12 +22,6 @@
             :class="`hexagon color-${navigationElement.name}`"
             @click.native="scope.splitHexagon"
           ></BaseIconButton>
-          <DarkModeButton
-            name="darkmode"
-            :dark-mode="darkMode"
-            :class="`hexagon color-darkmode-${darkMode ? 'dark' : 'light'}`"
-            @darkModeSet="darkMode = $event"
-          ></DarkModeButton>
           <SocialButton
             v-for="(social, key) in socials"
             :key="key"
@@ -36,7 +30,6 @@
             :type="social.icon"
             :link="social.link"
             :class="`hexagon color-${social.name}`"
-            @click.native="scope.splitHexagon"
           ></SocialButton>
         </template>
         <template slot="content">
@@ -58,14 +51,12 @@
 import BaseIconButton from '@/components/BaseIconButton'
 
 import SocialButton from '@/components/SocialButton'
-import DarkModeButton from '@/components/DarkModeButton'
 import ButtonCircleCollection from '@/components/ButtonCircleCollection'
 
 export default {
   components: {
     BaseIconButton,
     SocialButton,
-    DarkModeButton,
     ButtonCircleCollection
   },
   data() {
