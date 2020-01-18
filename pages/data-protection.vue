@@ -1240,6 +1240,9 @@
 .data-protection {
   text-align: left;
 }
+a {
+  word-wrap: break-word;
+}
 </style>
 <script>
 export default {
