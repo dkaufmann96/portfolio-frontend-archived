@@ -1,7 +1,11 @@
 <template>
   <v-app :dark="darkModeComputed">
+    <v-container class="text-center p-container mt-5" fluid>
+      <h1>Daniel Kaufmann</h1>
+      <h2>Software Engineer in Vienna, Austria</h2>
+    </v-container>
     <v-container class="text-center p-container my-auto" fluid>
-      <ButtonCircleCollection class="p-container my-5">
+      <ButtonCircleCollection class="p-container">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
