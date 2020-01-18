@@ -1,6 +1,7 @@
 <template>
   <BaseIconButton
     :name="name"
+    :label="label"
     :icon="`mdi-${type}`"
     :external-link="link"
   ></BaseIconButton>
