@@ -1,21 +1,26 @@
 <template>
   <v-app :dark="darkModeComputed">
     <v-container class="text-center p-container">
-      <ButtonCircleCollection class="mt-5">
-        <CookieControl />
+      <ButtonCircleCollection>
+        <BaseIconButton
+          v-for="(navigationElement, key) in navigation"
+          :key="key"
+          :name="navigationElement.name"
+          :type="navigationElement.icon"
+          :link="navigationElement.link"
+        ></BaseIconButton>
+        <DarkModeButton
+          name="dark-mode"
+          :dark-mode="darkMode"
+          @darkModeSet="darkMode = $event"
+        ></DarkModeButton>
         <SocialButton
           v-for="(social, key) in socials"
           :key="key"
           :name="social.name"
           :type="social.icon"
           :link="social.link"
-          :dark-mode="darkMode"
         ></SocialButton>
-        <DarkModeButton
-          name="dark-mode"
-          :dark-mode="darkMode"
-          @darkModeSet="darkMode = $event"
-        ></DarkModeButton>
       </ButtonCircleCollection>
     </v-container>
     <v-footer absolute padless>
@@ -29,22 +34,40 @@
 </template>
 
 <script>
+import BaseIconButton from '@/components/BaseIconButton'
+
 import SocialButton from '@/components/SocialButton'
 import DarkModeButton from '@/components/DarkModeButton'
 import ButtonCircleCollection from '@/components/ButtonCircleCollection'
-import CookieControl from '@/components/CookieControl'
 
 export default {
   components: {
+    BaseIconButton,
     SocialButton,
     DarkModeButton,
-    CookieControl,
     ButtonCircleCollection
   },
   data() {
     return {
       fixed: false,
       darkMode: true,
+      navigation: {
+        home: {
+          name: 'home',
+          icon: 'home',
+          link: '/home'
+        },
+        about: {
+          name: 'about',
+          icon: 'about',
+          link: '/about'
+        },
+        imprint: {
+          name: 'imprint',
+          icon: 'imprint',
+          link: '/imprint'
+        }
+      },
       socials: {
         github: {
           name: 'github',
@@ -60,6 +83,16 @@ export default {
           name: 'linkedin',
           icon: 'linkedin',
           link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/'
+        },
+        gitlab: {
+          name: 'gitlab',
+          icon: 'gitlab',
+          link: 'https://gitlab.com/dkaufmann96'
+        },
+        twitter: {
+          name: 'twitter',
+          icon: 'twitter',
+          link: 'https://twitter.com/dkaufmann96'
         }
       }
     }

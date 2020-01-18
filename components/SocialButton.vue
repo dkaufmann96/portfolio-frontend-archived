@@ -1,9 +1,8 @@
 <template>
   <BaseIconButton
     :name="name"
-    :dark-mode="darkMode"
     :icon="`mdi-${type}`"
-    :link="link"
+    :external-link="link"
   ></BaseIconButton>
 </template>
 <script>

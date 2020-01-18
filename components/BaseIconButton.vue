@@ -1,23 +1,16 @@
 <template v-slot:activator>
-  <a v-if="link" :href="link" class="icon">
-    <v-icon :name="name" :dark="darkMode" @click="$emit('click')">
+  <a v-if="externalLink" :href="externalLink" class="icon">
+    <v-icon :name="name" @click="$emit('click')">
       {{ icon }}
     </v-icon>
   </a>
-  <v-icon
-    v-else
-    class="icon"
-    :name="name"
-    :dark="darkMode"
-    @click="$emit('click')"
-  >
+  <v-icon v-else class="icon" :name="name" @click="$emit('click')">
     {{ icon }}
   </v-icon>
 </template>
 <style scoped>
 .icon {
   padding: 10px;
-  font-size: 30px;
   text-align: center;
   text-decoration: none;
   color: none;
@@ -31,6 +24,11 @@ export default {
       default: 'button'
     },
     link: {
+      type: String,
+      required: false,
+      default: null
+    },
+    externalLink: {
       type: String,
       required: false,
       default: null

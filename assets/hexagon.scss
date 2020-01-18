@@ -1,0 +1,132 @@
+
+:root {
+  /* Change this to change the appearance of the hexaons */
+  --hex-width: 120px;
+  --hex-between: 5px;
+  --hex-icon: 50px;
+
+  /* Other hexagon dimentions */
+  --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
+  --hex-margin: calc(var(--hex-width) / 2);
+  --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
+  --hex-transition: all 0.2s ease;
+
+  /* Colors */
+  --color-hex-default: #000000;
+  --color-hex-hover: #ffffff;
+  --color-github: #24292e;
+  --color-gitlab:#6610f2;
+  --color-linkedin: #0077b5;
+  --color-xing: #007575;
+  --color-twitter: #1da1f2;
+}
+
+/* Hexagons */
+.hexagon-container {
+  display: grid;
+  grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(
+      --hex-width
+    );
+  grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
+  grid-gap: var(--hex-between) var(--hex-between);
+  padding-bottom: var(--hex-border);
+}
+.hexagon {
+  align-items: center;
+  background-color: var(--color-hex-default);
+  cursor: pointer;
+  display: flex;
+  fill: white;
+  height: var(--hex-height);
+  justify-content: center;
+  margin: var(--hex-border) 0;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+  opacity:0.8
+}
+
+.v-icon.v-icon{
+  font-size:45px;
+}
+
+.hexagon::after,
+.hexagon::before {
+  border-left: var(--hex-margin) solid transparent;
+  border-right: var(--hex-margin) solid transparent;
+  content: '';
+  left: 0;
+  position: absolute;
+  transition: var(--hex-transition);
+  width: 0;
+}
+.hexagon::after {
+  border-top: var(--hex-border) solid var(--color-hex-default);
+  top: 100%;
+  width: 0;
+}
+.hexagon::before {
+  border-bottom: var(--hex-border) solid var(--color-hex-default);
+  bottom: 100%;
+}
+
+.hexagon:hover {
+  opacity:1;
+}
+
+.hexagon:nth-child(8n + 5),
+.hexagon:nth-child(8n + 6),
+.hexagon:nth-child(8n + 7),
+.hexagon:nth-child(8n + 8) {
+  margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+}
+
+.hexagon > svg {
+  height: 75%;
+  transition: var(--hex-transition);
+}
+
+.color-github {
+  background-color: var(--color-github);
+}
+.color-github::after,
+.color-github::before {
+  border-top-color: var(--color-github);
+  border-bottom-color: var(--color-github);
+}
+
+.color-gitlab {
+  background-color: var(--color-gitlab);
+}
+.color-gitlab::after,
+.color-gitlab::before {
+  border-top-color: var(--color-gitlab);
+  border-bottom-color: var(--color-gitlab);
+}
+
+.color-linkedin {
+  background-color: var(--color-linkedin);
+}
+.color-linkedin::after,
+.color-linkedin::before {
+  border-top-color: var(--color-linkedin);
+  border-bottom-color: var(--color-linkedin);
+}
+
+.color-xing {
+  background-color: var(--color-xing);
+}
+.color-xing::after,
+.color-xing::before {
+  border-top-color: var(--color-xing);
+  border-bottom-color: var(--color-xing);
+}
+
+.color-twitter {
+  background-color: var(--color-twitter);
+}
+.color-twitter::after,
+.color-twitter::before {
+  border-top-color: var(--color-twitter);
+  border-bottom-color: var(--color-twitter);
+}

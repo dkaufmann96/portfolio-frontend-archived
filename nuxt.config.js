@@ -27,7 +27,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['~/assets/hexagon.scss', '~/assets/styles.scss'],
   /*
    ** Plugins to load before mounting the App
    */
