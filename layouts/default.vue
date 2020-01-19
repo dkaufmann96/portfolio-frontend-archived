@@ -2,7 +2,7 @@
   <v-app :dark="darkModeComputed">
     <v-container class="text-center p-container mt-5" fluid>
       <h1 class="display-1">Daniel Kaufmann</h1>
-      <h2 class="headline">Software Engineer located in Vienna, Austria</h2>
+      <h2 class="headline">Software Engineer in Wien, Österreich</h2>
       <v-alert class="mt-5">
         Hinweis: Diese Seite ist noch in Arbeit und wird laufend erweitert.
       </v-alert>
