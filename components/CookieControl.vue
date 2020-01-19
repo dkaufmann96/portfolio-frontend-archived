@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="dialog" persistent width="500">
     <v-card>
-      <v-card-title class="headline" primary-title
+      <v-card-title class="cookie-headline" primary-title
         >This website uses cookies</v-card-title
       >
       <v-card-text
@@ -43,7 +43,7 @@
   </v-dialog>
 </template>
 <style scoped>
-.headline {
+.cookie-headline {
   word-break: normal !important;
 }
 </style>

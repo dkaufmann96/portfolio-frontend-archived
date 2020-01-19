@@ -1,9 +1,9 @@
 <template>
   <BaseIconButton
     :name="name"
-    :dark-mode="darkMode"
+    :label="label"
     :icon="`mdi-${type}`"
-    :link="link"
+    :external-link="link"
   ></BaseIconButton>
 </template>
 <script>
@@ -21,6 +21,11 @@ export default {
     link: {
       type: String,
       default: null
+    }
+  },
+  methods: {
+    followLink() {
+      window.location.href = this.link
     }
   }
 }

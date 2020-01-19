@@ -1,38 +1,52 @@
 <template>
   <v-app :dark="darkModeComputed">
-    <span class="mt-2 text-center">
-      <DarkModeButton
-        name="dark-mode"
-        :dark-mode="darkMode"
-        @darkModeSet="darkMode = $event"
-      ></DarkModeButton>
-      <CookieControl />
-    </span>
-    <v-container>
-      <v-card class="mx-auto">
-        <v-card-title>Hello!</v-card-title>
-        <v-card-text
-          >This page is currently under construction, and will soon be
-          available. In the meantime, you can check out my social media
-          profiles!
-        </v-card-text>
-      </v-card>
+    <v-container class="text-center p-container mt-5" fluid>
+      <h1 class="display-1">Daniel Kaufmann</h1>
+      <h2 class="headline">Software Engineer located in Vienna, Austria</h2>
+      <v-alert class="mt-5">
+        Hinweis: Diese Seite ist noch in Arbeit und wird laufend erweitert.
+      </v-alert>
     </v-container>
-    <v-footer absolute padless>
-      <v-card flat tile width="100%" class="text-center">
-        <v-card-text>
+    <CookieControl></CookieControl>
+    <v-container class="text-center p-container my-auto" fluid>
+      <ButtonCircleCollection class="p-container">
+        <template slot-scope="scope">
+          <BaseIconButton
+            name="home"
+            label="Home"
+            icon="mdi-home"
+            link="/"
+            class="hexagon color-home"
+            @click.native="scope.uniteHexagon"
+          >
+          </BaseIconButton>
+          <BaseIconButton
+            v-for="(navigationElement, key) in navigation"
+            :key="key"
+            :name="navigationElement.name"
+            :label="navigationElement.label"
+            :icon="`mdi-${navigationElement.icon}`"
+            :link="navigationElement.link"
+            :class="`hexagon color-${navigationElement.name}`"
+            @click.native="scope.splitHexagon"
+          ></BaseIconButton>
           <SocialButton
             v-for="(social, key) in socials"
             :key="key"
             :name="social.name"
+            :label="social.label"
             :type="social.icon"
             :link="social.link"
-            :dark-mode="darkMode"
+            :class="`hexagon color-${social.name}`"
           ></SocialButton>
-        </v-card-text>
-
-        <v-divider></v-divider>
-
+        </template>
+        <template slot="content">
+          <router-view></router-view>
+        </template>
+      </ButtonCircleCollection>
+    </v-container>
+    <v-footer padless>
+      <v-card flat tile width="100%" class="text-center">
         <v-card-text>
           &copy; Daniel Kaufmann {{ new Date().getFullYear() }}
         </v-card-text>
@@ -42,34 +56,79 @@
 </template>
 
 <script>
+import BaseIconButton from '@/components/BaseIconButton'
+
 import SocialButton from '@/components/SocialButton'
-import DarkModeButton from '@/components/DarkModeButton'
+import ButtonCircleCollection from '@/components/ButtonCircleCollection'
 import CookieControl from '@/components/CookieControl'
+
 export default {
   components: {
+    BaseIconButton,
     SocialButton,
-    DarkModeButton,
+    ButtonCircleCollection,
     CookieControl
   },
   data() {
     return {
       fixed: false,
       darkMode: true,
+      navigation: {
+        about: {
+          name: 'about',
+          label: 'About',
+          icon: 'account',
+          link: '/about'
+        },
+        projects: {
+          name: 'projects',
+          label: 'Projects',
+          icon: 'iframe-outline',
+          link: '/projects'
+        },
+        contact: {
+          name: 'contact',
+          label: 'Contact',
+          icon: 'email',
+          link: '/contact'
+        },
+        imprint: {
+          name: 'imprint',
+          label: 'Impressum',
+          icon: 'information-variant',
+          link: '/imprint'
+        }
+      },
       socials: {
         github: {
           name: 'github',
+          label: 'Github',
           icon: 'github-circle',
           link: '//www.github.com/dkaufmann96'
         },
         xing: {
           name: 'xing',
+          label: 'Xing',
           icon: 'xing',
           link: '//www.xing.com/profile/Daniel_Kaufmann87'
         },
         linkedin: {
           name: 'linkedin',
+          label: 'Linkedin',
           icon: 'linkedin',
           link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/'
+        },
+        gitlab: {
+          name: 'gitlab',
+          label: 'Gitlab',
+          icon: 'gitlab',
+          link: 'https://gitlab.com/dkaufmann96'
+        },
+        twitter: {
+          name: 'twitter',
+          label: 'Twitter',
+          icon: 'twitter',
+          link: 'https://twitter.com/dkaufmann96'
         }
       }
     }
