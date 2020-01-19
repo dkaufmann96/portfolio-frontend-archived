@@ -2,37 +2,38 @@
   <v-dialog v-model="dialog" persistent width="500">
     <v-card>
       <v-card-title class="cookie-headline" primary-title
-        >This website uses cookies</v-card-title
+        >Diese Seite verwendet Cookies</v-card-title
       >
-      <v-card-text
-        >This website uses cookies in order to make it as user-friendly as
-        possible and to offer you the best possible service. If you click on
-        "Accept", you consent that you agree with this. Under "Settings" you can
-        manage which types of cookies are set.</v-card-text
+      <v-card-text>
+        Diese Seite verwendet Cookies, um sie so benutzerfreundlich wie möglich
+        zu gestalten, und das bestmögliche Service anbieten zu können. Wenn Sie
+        auf "Akzeptieren" klicken, erklären Sie sich damit einverstanden. Unter
+        "Einstellungen" können Sie die Art von Cookies, die verwaltet werden
+        sollen, setzen.</v-card-text
       >
       <template v-if="settingsOpened">
         <v-card-text>
           <v-switch
             v-model="defaultCookies"
-            label="Basic Functionality"
+            label="Basisfunktionalität"
             disabled
           ></v-switch>
           <v-switch
             v-model="analytics"
-            label="Analytics & Usability"
+            label="Analysen & Benutzerfreundlichkeit"
           ></v-switch>
         </v-card-text>
       </template>
       <v-card-actions>
         <BaseButton
           name="cookie-settings"
-          :label="settingsOpened ? 'Close Settings' : 'Settings'"
+          :label="settingsOpened ? 'Einstellungen schließen' : 'Einstellungen'"
           @click="settingsOpened = !settingsOpened"
         ></BaseButton>
         <v-spacer></v-spacer>
         <BaseButton
           name="accept"
-          :label="settingsOpened ? 'Save Settings' : 'Accept'"
+          :label="settingsOpened ? 'Einstellungen speichern' : 'Akzeptieren'"
           @click="
             dialog = false
             setPreferences()

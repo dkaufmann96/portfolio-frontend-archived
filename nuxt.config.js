@@ -9,6 +9,9 @@ export default {
   head: {
     titleTemplate: '%s - ' + process.env.DEFAULT_TITLE,
     title: process.env.DEFAULT_TITLE || '',
+    htmlAttrs: {
+      lang: 'de'
+    },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
