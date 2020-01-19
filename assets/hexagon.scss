@@ -1,0 +1,233 @@
+
+:root {
+  /* Change this to change the appearance of the hexaons */
+  --hex-width: 120px;
+  --hex-between: 5px;
+  --hex-icon: 50px;
+
+  @media only screen and (max-width: 768px) {
+    --hex-width: 70px;
+    --hex-between: 5px;
+    --hex-icon: 15px;
+  }
+
+  /* Other hexagon dimentions */
+  --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
+  --hex-margin: calc(var(--hex-width) / 2);
+  --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
+  --hex-transition: all 0.2s ease;
+
+  /* Colors */
+  --color-hex-default: #000000;
+  --color-home: #a30b0b;
+  --color-about: #284eb6;
+  --color-projects: #279141;
+  --color-contact: #467ffa;
+  --color-imprint: #0e78a1;
+  --color-darkmode-light: #c8cedf;
+  --color-darkmode-dark: #27282c9c;
+  --color-github: #24292e;
+  --color-gitlab:#6610f2;
+  --color-linkedin: #0077b5;
+  --color-xing: #007575;
+  --color-twitter: #1da1f2;
+}
+
+/* Hexagons */
+.hexagon-container {
+  display: grid;
+  grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(
+      --hex-width
+    );
+  grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
+  grid-gap: var(--hex-between) var(--hex-between);
+  padding-bottom: var(--hex-border);
+  margin-left:-45px;
+
+}
+.hexagon {
+  align-items: center;
+  background-color: var(--color-hex-default);
+  cursor: pointer;
+  display: flex;
+  fill: white;
+  height: var(--hex-height);
+  justify-content: center;
+  margin: var(--hex-border) 0;
+  position: relative;
+  transition: var(--hex-transition);
+  width: var(--hex-width);
+  opacity:0.8;
+  .showText{
+    display: none;
+  }
+}
+
+.v-icon.v-icon{
+  font-size:45px;
+}
+
+.hexagon::after,
+.hexagon::before {
+  border-left: var(--hex-margin) solid transparent;
+  border-right: var(--hex-margin) solid transparent;
+  content: '';
+  left: 0;
+  position: absolute;
+  transition: var(--hex-transition);
+  width: 0;
+}
+.hexagon::after {
+  border-top: var(--hex-border) solid var(--color-hex-default);
+  top: 100%;
+  width: 0;
+}
+.hexagon::before {
+  border-bottom: var(--hex-border) solid var(--color-hex-default);
+  bottom: 100%;
+}
+
+.hexagon:hover {
+  opacity:1;
+}
+
+.hexagon:hover {
+  .showIcon{
+    display:none;
+  }
+  .showText{
+    display:block;
+    text-decoration: none;
+    color:#ffff;
+  }
+}
+
+.hexagon.splitTop{
+  top:0;
+  position: absolute;
+}
+
+.hexagon.splitBottom{
+  bottom:0;
+  position: absolute;
+}
+
+.hexagon:nth-child(8n + 5),
+.hexagon:nth-child(8n + 6),
+.hexagon:nth-child(8n + 7),
+.hexagon:nth-child(8n + 8) {
+  margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+}
+
+.hexagon > svg {
+  height: 75%;
+  transition: var(--hex-transition);
+}
+
+.color-home {
+  background-color: var(--color-home);
+}
+.color-home::after,
+.color-home::before {
+  border-top-color: var(--color-home);
+  border-bottom-color: var(--color-home);
+}
+
+.color-about {
+  background-color: var(--color-about);
+}
+.color-about::after,
+.color-about::before {
+  border-top-color: var(--color-about);
+  border-bottom-color: var(--color-about);
+}
+
+.color-projects {
+  background-color: var(--color-projects);
+}
+.color-projects::after,
+.color-projects::before {
+  border-top-color: var(--color-projects);
+  border-bottom-color: var(--color-projects);
+}
+
+.color-contact {
+  background-color: var(--color-contact);
+}
+.color-contact::after,
+.color-contact::before {
+  border-top-color: var(--color-contact);
+  border-bottom-color: var(--color-contact);
+}
+
+.color-imprint {
+  background-color: var(--color-imprint);
+}
+.color-imprint::after,
+.color-imprint::before {
+  border-top-color: var(--color-imprint);
+  border-bottom-color: var(--color-imprint);
+}
+
+.color-darkmode-light {
+  background-color: var(--color-darkmode-light);
+}
+.color-darkmode-light::after,
+.color-darkmode-light::before {
+  border-top-color: var(--color-darkmode-light);
+  border-bottom-color: var(--color-darkmode-light);
+}
+
+.color-darkmode-dark {
+  background-color: var(--color-darkmode-dark);
+}
+.color-darkmode-dark::after,
+.color-darkmode-dark::before {
+  border-top-color: var(--color-darkmode-dark);
+  border-bottom-color: var(--color-darkmode-dark);
+}
+
+.color-github {
+  background-color: var(--color-github);
+}
+.color-github::after,
+.color-github::before {
+  border-top-color: var(--color-github);
+  border-bottom-color: var(--color-github);
+}
+
+.color-gitlab {
+  background-color: var(--color-gitlab);
+}
+.color-gitlab::after,
+.color-gitlab::before {
+  border-top-color: var(--color-gitlab);
+  border-bottom-color: var(--color-gitlab);
+}
+
+.color-linkedin {
+  background-color: var(--color-linkedin);
+}
+.color-linkedin::after,
+.color-linkedin::before {
+  border-top-color: var(--color-linkedin);
+  border-bottom-color: var(--color-linkedin);
+}
+
+.color-xing {
+  background-color: var(--color-xing);
+}
+.color-xing::after,
+.color-xing::before {
+  border-top-color: var(--color-xing);
+  border-bottom-color: var(--color-xing);
+}
+
+.color-twitter {
+  background-color: var(--color-twitter);
+}
+.color-twitter::after,
+.color-twitter::before {
+  border-top-color: var(--color-twitter);
+  border-bottom-color: var(--color-twitter);
+}
