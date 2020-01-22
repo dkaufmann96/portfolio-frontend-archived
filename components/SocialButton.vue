@@ -2,7 +2,7 @@
   <BaseIconButton
     :name="name"
     :label="label"
-    :icon="`mdi-${type}`"
+    :icon="icon"
     :external-link="link"
   ></BaseIconButton>
 </template>
@@ -14,7 +14,7 @@ export default {
   },
   extends: BaseIconButton,
   props: {
-    type: {
+    icon: {
       type: String,
       default: null
     },
