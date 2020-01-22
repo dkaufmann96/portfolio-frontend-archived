@@ -1,12 +1,12 @@
 <template v-slot:activator>
   <a v-if="externalLink" :href="externalLink" class="icon">
-    <v-icon class="showIcon" :name="name" @click="$emit('click')">
+    <v-icon size="45" class="showIcon" :name="name" @click="$emit('click')">
       {{ icon }}
     </v-icon>
     <span class="showText">{{ label }}</span>
   </a>
   <nuxt-link v-else :to="link" class="icon">
-    <v-icon class="showIcon" :name="name" @click="$emit('click')">
+    <v-icon size="45" class="showIcon" :name="name" @click="$emit('click')">
       {{ icon }}
     </v-icon>
     <span class="showText">{{ label }}</span>
