@@ -16,6 +16,7 @@
             label="Home"
             :icon="homeIcon"
             link="/"
+            aria-label="Home"
             class="hexagon color-home"
             @click.native="scope.uniteHexagon"
           >
@@ -28,6 +29,7 @@
             :icon="navigationElement.icon"
             :link="navigationElement.link"
             :class="`hexagon color-${navigationElement.name}`"
+            :aria-label="navigationElement.label"
             @click.native="scope.splitHexagon"
           ></BaseIconButton>
           <SocialButton
@@ -37,6 +39,7 @@
             :label="social.label"
             :icon="social.icon"
             :link="social.link"
+            :aria-label="social.label"
             :class="`hexagon color-${social.name}`"
           ></SocialButton>
         </template>

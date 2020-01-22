@@ -1,15 +1,32 @@
 <template v-slot:activator>
-  <a v-if="externalLink" :href="externalLink" class="icon">
-    <v-icon size="45" class="showIcon" :name="name" @click="$emit('click')">
+  <a
+    v-if="externalLink"
+    :aria-label="ariaLabel"
+    :href="externalLink"
+    class="icon"
+  >
+    <v-icon
+      size="45"
+      class="showIcon"
+      :aria-label="ariaLabel"
+      :name="name"
+      @click="$emit('click')"
+    >
       {{ icon }}
     </v-icon>
     <span class="showText">{{ label }}</span>
   </a>
-  <nuxt-link v-else :to="link" class="icon">
-    <v-icon size="45" class="showIcon" :name="name" @click="$emit('click')">
+  <nuxt-link v-else :to="link" :aria-label="ariaLabel" class="icon">
+    <v-icon
+      size="45"
+      class="showIcon"
+      :aria-label="ariaLabel"
+      :name="name"
+      @click="$emit('click')"
+    >
       {{ icon }}
     </v-icon>
-    <span class="showText">{{ label }}</span>
+    <span class="showText" :aria-label="ariaLabel">{{ label }}</span>
   </nuxt-link>
 </template>
 <style scoped>
@@ -55,6 +72,10 @@ export default {
     showText: {
       type: Boolean,
       default: false
+    },
+    ariaLabel: {
+      type: String,
+      required: true
     }
   }
 }

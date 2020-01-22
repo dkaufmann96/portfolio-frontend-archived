@@ -4,6 +4,7 @@
     :label="label"
     :icon="icon"
     :external-link="link"
+    :aria-label="ariaLabel"
   ></BaseIconButton>
 </template>
 <script>
@@ -21,6 +22,10 @@ export default {
     link: {
       type: String,
       default: null
+    },
+    ariaLabel: {
+      type: String,
+      required: true
     }
   },
   methods: {

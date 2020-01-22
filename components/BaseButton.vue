@@ -3,6 +3,7 @@
     :name="name"
     :dark-mode="darkMode"
     :color="color"
+    :aria-label="ariaLabel"
     @click="$emit('click')"
     >{{ label }}</v-btn
   >
@@ -26,6 +27,10 @@ export default {
       type: String,
       required: false,
       default: 'gray'
+    },
+    ariaLabel: {
+      type: String,
+      required: true
     }
   }
 }
