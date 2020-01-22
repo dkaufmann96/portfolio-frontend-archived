@@ -9,12 +9,12 @@
     </v-container>
     <CookieControl></CookieControl>
     <v-container class="text-center p-container my-auto" fluid>
-      <ButtonCircleCollection class="p-container">
+      <ButtonCircleCollection class="p-container" name="menu">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
             label="Home"
-            icon="mdi-home"
+            :icon="homeIcon"
             link="/"
             class="hexagon color-home"
             @click.native="scope.uniteHexagon"
@@ -25,7 +25,7 @@
             :key="key"
             :name="navigationElement.name"
             :label="navigationElement.label"
-            :icon="`mdi-${navigationElement.icon}`"
+            :icon="navigationElement.icon"
             :link="navigationElement.link"
             :class="`hexagon color-${navigationElement.name}`"
             @click.native="scope.splitHexagon"
@@ -35,7 +35,7 @@
             :key="key"
             :name="social.name"
             :label="social.label"
-            :type="social.icon"
+            :icon="social.icon"
             :link="social.link"
             :class="`hexagon color-${social.name}`"
           ></SocialButton>
@@ -46,7 +46,7 @@
       </ButtonCircleCollection>
     </v-container>
     <v-footer padless>
-      <v-card flat tile width="100%" class="text-center">
+      <v-card flat tile name="footer" width="100%" class="text-center">
         <v-card-text>
           &copy; Daniel Kaufmann {{ new Date().getFullYear() }}
         </v-card-text>
@@ -62,6 +62,19 @@ import SocialButton from '@/components/SocialButton'
 import ButtonCircleCollection from '@/components/ButtonCircleCollection'
 import CookieControl from '@/components/CookieControl'
 
+import {
+  mdiHome,
+  mdiAccount,
+  mdiIframeOutline,
+  mdiEmail,
+  mdiInformationVariant,
+  mdiGithubCircle,
+  mdiXing,
+  mdiLinkedin,
+  mdiGitlab,
+  mdiTwitter
+} from '@mdi/js'
+
 export default {
   components: {
     BaseIconButton,
@@ -73,29 +86,30 @@ export default {
     return {
       fixed: false,
       darkMode: true,
+      homeIcon: mdiHome,
       navigation: {
         about: {
           name: 'about',
           label: 'About',
-          icon: 'account',
+          icon: mdiAccount,
           link: '/about'
         },
         projects: {
           name: 'projects',
           label: 'Projects',
-          icon: 'iframe-outline',
+          icon: mdiIframeOutline,
           link: '/projects'
         },
         contact: {
           name: 'contact',
           label: 'Contact',
-          icon: 'email',
+          icon: mdiEmail,
           link: '/contact'
         },
         imprint: {
           name: 'imprint',
           label: 'Impressum',
-          icon: 'information-variant',
+          icon: mdiInformationVariant,
           link: '/imprint'
         }
       },
@@ -103,31 +117,31 @@ export default {
         github: {
           name: 'github',
           label: 'Github',
-          icon: 'github-circle',
+          icon: mdiGithubCircle,
           link: '//www.github.com/dkaufmann96'
         },
         xing: {
           name: 'xing',
           label: 'Xing',
-          icon: 'xing',
+          icon: mdiXing,
           link: '//www.xing.com/profile/Daniel_Kaufmann87'
         },
         linkedin: {
           name: 'linkedin',
           label: 'Linkedin',
-          icon: 'linkedin',
+          icon: mdiLinkedin,
           link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/'
         },
         gitlab: {
           name: 'gitlab',
           label: 'Gitlab',
-          icon: 'gitlab',
+          icon: mdiGitlab,
           link: 'https://gitlab.com/dkaufmann96'
         },
         twitter: {
           name: 'twitter',
           label: 'Twitter',
-          icon: 'twitter',
+          icon: mdiTwitter,
           link: 'https://twitter.com/dkaufmann96'
         }
       }
