@@ -24,28 +24,39 @@
           ></v-switch>
         </v-card-text>
       </template>
-      <v-card-actions>
-        <BaseButton
-          name="cookie-settings"
-          :label="settingsOpened ? 'Einstellungen schließen' : 'Einstellungen'"
-          @click="settingsOpened = !settingsOpened"
-        ></BaseButton>
-        <v-spacer></v-spacer>
-        <BaseButton
-          name="accept"
-          :label="settingsOpened ? 'Einstellungen speichern' : 'Akzeptieren'"
-          @click="
-            dialog = false
-            setPreferences()
-          "
-        ></BaseButton>
-      </v-card-actions>
+      <v-row align="center">
+        <v-col class="text-center">
+          <BaseButton
+            v-if="!settingsOpened"
+            name="cookie-settings"
+            aria-label="Einstellungen"
+            label="Einstellungen"
+            class="mb-5"
+            block
+            @click="settingsOpened = !settingsOpened"
+          ></BaseButton>
+          <v-spacer></v-spacer>
+          <BaseButton
+            name="accept"
+            aria-label="Akzeptieren"
+            label="Akzeptieren"
+            block
+            @click="
+              dialog = false
+              setPreferences()
+            "
+          ></BaseButton>
+        </v-col>
+      </v-row>
     </v-card>
   </v-dialog>
 </template>
 <style scoped>
 .cookie-headline {
   word-break: normal !important;
+}
+.v-card {
+  padding: 0 20px 0 20px;
 }
 </style>
 <script>
