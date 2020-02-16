@@ -1,5 +1,4 @@
 @import "~vuetify/src/styles/styles.sass";
-$body-font-family: "Trebuchet MS, Helvetica, sans-serif";
 .v-application {
   body,
   .display-1,
@@ -20,7 +19,7 @@ $body-font-family: "Trebuchet MS, Helvetica, sans-serif";
   h5,
   h6
   .overline {
-    font-family: $body-font-family !important;
+    font-weight:600
   }
 }
 .fab-container {
