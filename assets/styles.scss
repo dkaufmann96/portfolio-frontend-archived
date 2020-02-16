@@ -1,12 +1,49 @@
+@import "~vuetify/src/styles/styles.sass";
+$body-font-family: "Trebuchet MS, Helvetica, sans-serif";
+.v-application {
+  body,
+  .display-1,
+  .display-2,
+  .display-3,
+  .display-4,
+  .headline,
+  .title,
+  .subtitle-1,
+  .subtitle-2,
+  .body-1,
+  .body-2,
+  .caption,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6
+  .overline {
+    font-family: $body-font-family !important;
+  }
+}
 .fab-container {
   margin-left: 15px;
-}
-.social-speed-dial {
-  margin: 6px 8px 6px 8px;
 }
 .p-container{
   display:flex;
   flex-direction: column;
   align-items: center;
   width:100%;
+}
+.footer{
+  color:#b6b6b6;
+  margin:auto;
+}
+.slide-fade-enter-active {
+  transition: all .8s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
 }
