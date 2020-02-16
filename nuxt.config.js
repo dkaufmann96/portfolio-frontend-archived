@@ -55,6 +55,11 @@ export default {
     'nuxt-webfontloader',
     '@nuxtjs/sitemap'
   ],
+  webfontloader: {
+    google: {
+      families: ['Trebuchet MS, Helvetica, sans-serif']
+    }
+  },
   render: {
     static: {
       maxAge: 31536000 // 1 year
