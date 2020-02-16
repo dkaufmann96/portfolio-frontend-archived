@@ -49,6 +49,9 @@
       <span class="footer">
         &copy; Daniel Kaufmann {{ new Date().getFullYear() }}</span
       >
+      <span class="footer"
+        >Built with <a href="https://nuxtjs.org/">nuxt.js</a></span
+      >
     </v-footer>
   </v-app>
 </template>
