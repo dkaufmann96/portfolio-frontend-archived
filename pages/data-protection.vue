@@ -1,5 +1,5 @@
 <template>
-  <div class="data-protection">
+  <div class="data-protectio container">
     <h2 class="adsimple-221113278">EU-Streitschlichtung</h2>
     <p>
       Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten
@@ -1239,8 +1239,12 @@
 <style scoped>
 .data-protection {
   text-align: left;
+  padding: 30px;
 }
-a {
+a,
+p,
+h1,
+h2 {
   word-wrap: break-word;
 }
 </style>

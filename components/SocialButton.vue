@@ -2,8 +2,9 @@
   <BaseIconButton
     :name="name"
     :label="label"
-    :icon="`mdi-${type}`"
+    :icon="icon"
     :external-link="link"
+    :aria-label="ariaLabel"
   ></BaseIconButton>
 </template>
 <script>
@@ -14,13 +15,17 @@ export default {
   },
   extends: BaseIconButton,
   props: {
-    type: {
+    icon: {
       type: String,
       default: null
     },
     link: {
       type: String,
       default: null
+    },
+    ariaLabel: {
+      type: String,
+      required: true
     }
   },
   methods: {

@@ -3,9 +3,11 @@
     :name="name"
     :dark-mode="darkMode"
     :color="color"
+    :aria-label="ariaLabel"
+    :block="block"
     @click="$emit('click')"
-    >{{ label }}</v-btn
-  >
+    >{{ label }}
+  </v-btn>
 </template>
 <script>
 export default {
@@ -26,6 +28,15 @@ export default {
       type: String,
       required: false,
       default: 'gray'
+    },
+    ariaLabel: {
+      type: String,
+      required: true
+    },
+    block: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }

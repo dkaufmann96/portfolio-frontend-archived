@@ -12,9 +12,6 @@
       Kontaktdaten: Email: contact@danielkaufmann.at
     </p>
     <p>
-      UID-Nummer:
-    </p>
-    <p>
       Mitgliedschaften bei der Wirtschaftskammerorganisation: Mitglied der WKÖ,
       WKNÖ
     </p>

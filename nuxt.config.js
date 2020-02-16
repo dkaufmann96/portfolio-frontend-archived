@@ -1,6 +1,4 @@
-import colors from 'vuetify/es5/util/colors'
 require('dotenv').config()
-
 export default {
   mode: 'universal',
   /*
@@ -52,8 +50,20 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     '@dkaufmann96/nuxtjs-google-gtag',
-    'cookie-universal-nuxt'
+    'cookie-universal-nuxt',
+    '@nuxtjs/component-cache',
+    'nuxt-webfontloader',
+    '@nuxtjs/sitemap'
   ],
+  render: {
+    static: {
+      maxAge: 31536000 // 1 year
+    }
+  },
+  sitemap: {
+    hostname: 'https://danielkaufmann.at',
+    gzip: true
+  },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
@@ -65,19 +75,8 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          primary: colors.blue.darken2,
-          accent: colors.grey.darken3,
-          secondary: colors.amber.darken3,
-          info: colors.teal.lighten1,
-          warning: colors.amber.base,
-          error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
+    defaultAssets: {
+      icons: false
     }
   },
   pwa: {
@@ -91,7 +90,7 @@ export default {
       anonymize_ip: true, // anonymize IP
       send_page_view: false // might be necessary to avoid duplicated page track on page reload
     },
-    debug: true, // enable to track in dev mode
+    debug: false, // enable to track in dev mode
     disableAutoPageTrack: false // disable if you don't want to track each page route with router.afterEach(...).
   },
   /*

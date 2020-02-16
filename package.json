@@ -1,6 +1,6 @@
 {
   "name": "portfolio",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Daniel Kaufmanns personal web page",
   "author": "Daniel Kaufmann",
   "private": true,
@@ -23,10 +23,14 @@
   },
   "dependencies": {
     "@dkaufmann96/nuxtjs-google-gtag": "git+https://github.com/dkaufmann96/nuxtjs-google-gtag.git",
+    "@mdi/js": "^4.8.95",
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/component-cache": "^1.1.5",
     "@nuxtjs/pwa": "^3.0.0-0",
+    "@nuxtjs/sitemap": "^2.0.1",
     "cookie-universal-nuxt": "^2.1.0",
-    "nuxt": "^2.11.0"
+    "nuxt": "^2.11.0",
+    "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
     "@nuxtjs/dotenv": "^1.4.1",
