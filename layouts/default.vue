@@ -9,7 +9,7 @@
     </v-container>
     <CookieControl></CookieControl>
     <v-container class="text-center p-container my-auto" fluid>
-      <ButtonCircleCollection class="p-container" name="menu">
+      <ButtonHexagonCollection class="p-container" name="menu">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
@@ -46,7 +46,7 @@
         <template slot="content">
           <router-view></router-view>
         </template>
-      </ButtonCircleCollection>
+      </ButtonHexagonCollection>
     </v-container>
     <v-footer padless>
       <v-card flat tile name="footer" width="100%" class="text-center">
@@ -62,7 +62,7 @@
 import BaseIconButton from '@/components/BaseIconButton'
 
 import SocialButton from '@/components/SocialButton'
-import ButtonCircleCollection from '@/components/ButtonCircleCollection'
+import ButtonHexagonCollection from '@/components/ButtonHexagonCollection'
 import CookieControl from '@/components/CookieControl'
 
 import {
@@ -82,7 +82,7 @@ export default {
   components: {
     BaseIconButton,
     SocialButton,
-    ButtonCircleCollection,
+    ButtonHexagonCollection,
     CookieControl
   },
   data() {

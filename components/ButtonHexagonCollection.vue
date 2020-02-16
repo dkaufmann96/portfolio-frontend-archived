@@ -16,7 +16,7 @@
 </template>
 <script>
 export default {
-  name: 'ButtonCircleCollection',
+  name: 'ButtonHexagonCollection',
   data() {
     return {
       splitMode: false
