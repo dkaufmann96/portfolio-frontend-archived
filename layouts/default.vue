@@ -1,15 +1,12 @@
 <template>
-  <v-app :dark="darkModeComputed">
+  <v-app>
     <v-container class="text-center p-container mt-5" fluid>
-      <h1 class="display-1">Daniel Kaufmann</h1>
-      <h2 class="headline">Software Engineer in Wien, Österreich</h2>
-      <v-alert class="mt-5">
-        Hinweis: Diese Seite ist noch in Arbeit und wird laufend erweitert.
-      </v-alert>
+      <h1>Daniel Kaufmann</h1>
+      <h2>Software Engineer in Wien, Österreich</h2>
     </v-container>
     <CookieControl></CookieControl>
-    <v-container class="text-center p-container my-auto" fluid>
-      <ButtonHexagonCollection class="p-container" name="menu">
+    <v-container class="text-center my-auto" fluid>
+      <ButtonHexagonCollection name="menu">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
@@ -48,12 +45,10 @@
         </template>
       </ButtonHexagonCollection>
     </v-container>
-    <v-footer padless>
-      <v-card flat tile name="footer" width="100%" class="text-center">
-        <v-card-text>
-          &copy; Daniel Kaufmann {{ new Date().getFullYear() }}
-        </v-card-text>
-      </v-card>
+    <v-footer padless color="#fafafa">
+      <span class="footer">
+        &copy; Daniel Kaufmann {{ new Date().getFullYear() }}</span
+      >
     </v-footer>
   </v-app>
 </template>
