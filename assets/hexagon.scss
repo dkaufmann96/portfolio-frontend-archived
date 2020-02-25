@@ -42,7 +42,9 @@
   grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
-
+  top:0;
+  position: -webkit-sticky;
+  position:sticky;
 }
 .hexagon-container.split{
   @media only screen and (min-width: 768px) {

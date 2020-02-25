@@ -1,5 +1,5 @@
 <template>
-  <div :class="splitMode ? 'row' : 'p-container row'">
+  <div :class="splitMode ? 'sticky-container row' : 'p-container row'">
     <div
       :class="
         splitMode
