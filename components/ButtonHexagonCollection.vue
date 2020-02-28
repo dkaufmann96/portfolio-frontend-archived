@@ -1,9 +1,9 @@
 <template>
-  <div :class="splitMode ? 'row' : 'p-container row'">
+  <div :class="splitMode ? 'sticky-container row' : 'p-container row'">
     <div
       :class="
         splitMode
-          ? 'hexagon-container split col-md-4 ml-2'
+          ? 'hexagon-container split col-md-4'
           : 'hexagon-container my-auto'
       "
     >
@@ -25,9 +25,11 @@ export default {
   methods: {
     uniteHexagon() {
       this.splitMode = false
+      this.$emit('split')
     },
     splitHexagon() {
       this.splitMode = true
+      this.$emit('split')
     }
   }
 }

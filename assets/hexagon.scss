@@ -5,7 +5,7 @@
   --hex-between: 5px;
   --hex-icon: 50px;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 960px) {
     --hex-width: 70px;
     --hex-between: 5px;
     --hex-icon: 15px;
@@ -42,11 +42,30 @@
   grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
   grid-gap: var(--hex-between) var(--hex-between);
   padding-bottom: var(--hex-border);
-
+  top:0;
+  position: -webkit-sticky;
+  position:sticky;
 }
 .hexagon-container.split{
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 961px) {
     grid-template-columns: var(--hex-width) var(--hex-width);
+  }
+  @media only screen and (max-width: 960px) {
+    --hex-width: 20%;
+    grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
+    grid-gap: 0;
+    position:fixed;
+    .hexagon::after,
+    .hexagon::before,
+    .hexagon:nth-child(n + 6) {
+      display:none
+    }
+    .hexagon {
+      margin:0;
+      width:100%
+    }
+    padding:0;
+    
   }
 }
 .hexagon {
@@ -62,50 +81,48 @@
   transition: var(--hex-transition);
   width: var(--hex-width);
   opacity:0.8;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 960px) {
     font-size:12px;
   }
   .showText{
     display: none;
   }
 }
-
 .hexagon::after,
 .hexagon::before {
-  border-left: var(--hex-margin) solid transparent;
-  border-right: var(--hex-margin) solid transparent;
-  content: '';
-  left: 0;
-  position: absolute;
-  transition: var(--hex-transition);
-  width: 0;
+    border-left: var(--hex-margin) solid transparent;
+    border-right: var(--hex-margin) solid transparent;
+    content: '';
+    left: 0;
+    position: absolute;
+    transition: var(--hex-transition);
+    width: 0;
 }
 .hexagon::after {
-  border-top: var(--hex-border) solid var(--color-hex-default);
-  top: 100%;
-  width: 0;
+    border-top: var(--hex-border) solid var(--color-hex-default);
+    top: 100%;
+    width: 0;
 }
 .hexagon::before {
-  border-bottom: var(--hex-border) solid var(--color-hex-default);
-  bottom: 100%;
+    border-bottom: var(--hex-border) solid var(--color-hex-default);
+    bottom: 100%;
 }
-
-.hexagon:hover {
-  opacity:1;
-}
-
-.hexagon:hover {
-  .showIcon{
-    display:none;
+@media only screen and (min-width: 961px) {
+  .hexagon:hover {
+    opacity:1;
   }
-  .showText{
-    display:block;
-    text-decoration: none;
-    color:#ffff;
+  
+  .hexagon:hover {
+    .showIcon{
+      display:none;
+    }
+    .showText{
+      display:block;
+      text-decoration: none;
+      color:#ffff;
+    }
   }
-}
 
-@media only screen and (min-width: 768px) {
   .hexagon-container.split {
     .hexagon:nth-child(8n + 3),
     .hexagon:nth-child(8n + 4),
@@ -114,16 +131,7 @@
       margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
     }
   }
-}
-@media only screen and (max-width: 768px) {
-  .hexagon-container.split {
-    .hexagon:nth-child(8n + 5),
-    .hexagon:nth-child(8n + 6),
-    .hexagon:nth-child(8n + 7),
-    .hexagon:nth-child(8n + 8) {
-      margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
-    }
-  }
+  
 }
 .hexagon-container:not(.split) {
   .hexagon:nth-child(8n + 5),
@@ -132,7 +140,6 @@
   .hexagon:nth-child(8n + 8) {
     margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
   }
-
 }
 .hexagon > svg {
   height: 75%;

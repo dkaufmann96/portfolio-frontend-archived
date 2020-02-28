@@ -1,12 +1,15 @@
 <template>
   <v-app>
-    <v-container class="text-center p-container mt-5" fluid>
+    <v-container
+      :class="{ 'text-center p-container': true, header: splitMode }"
+      fluid
+    >
       <h1>Daniel Kaufmann</h1>
       <h2>Software Engineer in Wien, Österreich</h2>
     </v-container>
     <CookieControl></CookieControl>
     <v-container class="text-center my-auto" fluid>
-      <ButtonHexagonCollection name="menu">
+      <ButtonHexagonCollection name="menu" @split="splitMode = !splitMode">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
@@ -88,6 +91,7 @@ export default {
       fixed: false,
       darkMode: true,
       homeIcon: mdiHome,
+      splitMode: false,
       navigation: {
         about: {
           name: 'about',
