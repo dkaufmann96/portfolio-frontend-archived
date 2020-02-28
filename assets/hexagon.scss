@@ -5,7 +5,7 @@
   --hex-between: 5px;
   --hex-icon: 50px;
 
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 960px) {
     --hex-width: 70px;
     --hex-between: 5px;
     --hex-icon: 15px;
@@ -47,10 +47,10 @@
   position:sticky;
 }
 .hexagon-container.split{
-  @media only screen and (min-width: 769px) {
+  @media only screen and (min-width: 961px) {
     grid-template-columns: var(--hex-width) var(--hex-width);
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 960px) {
     --hex-width: 20%;
     grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
     grid-gap: 0;
@@ -81,7 +81,7 @@
   transition: var(--hex-transition);
   width: var(--hex-width);
   opacity:0.8;
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 960px) {
     font-size:12px;
   }
   .showText{
@@ -107,7 +107,7 @@
     border-bottom: var(--hex-border) solid var(--color-hex-default);
     bottom: 100%;
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 961px) {
   .hexagon:hover {
     opacity:1;
   }
