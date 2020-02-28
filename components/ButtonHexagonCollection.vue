@@ -25,11 +25,11 @@ export default {
   methods: {
     uniteHexagon() {
       this.splitMode = false
-      this.$emit('split')
+      this.$emit('split', false)
     },
     splitHexagon() {
       this.splitMode = true
-      this.$emit('split')
+      this.$emit('split', true)
     }
   }
 }

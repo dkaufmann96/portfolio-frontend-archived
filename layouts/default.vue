@@ -9,7 +9,7 @@
     </v-container>
     <CookieControl></CookieControl>
     <v-container class="text-center my-auto" fluid>
-      <ButtonHexagonCollection name="menu" @split="splitMode = !splitMode">
+      <ButtonHexagonCollection name="menu" @split="splitMode = arguments[0]">
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
