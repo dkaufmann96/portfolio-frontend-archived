@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-container class="text-center p-container mt-5" fluid>
+    <v-container class="text-center header p-container" fluid>
       <h1>Daniel Kaufmann</h1>
       <h2>Software Engineer in Wien, Österreich</h2>
     </v-container>

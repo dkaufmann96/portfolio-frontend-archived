@@ -47,8 +47,25 @@
   position:sticky;
 }
 .hexagon-container.split{
-  @media only screen and (min-width: 768px) {
+  @media only screen and (min-width: 769px) {
     grid-template-columns: var(--hex-width) var(--hex-width);
+  }
+  @media only screen and (max-width: 768px) {
+    --hex-width: 20%;
+    grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
+    grid-gap: 0;
+    position:fixed;
+    .hexagon::after,
+    .hexagon::before,
+    .hexagon:nth-child(n + 6) {
+      display:none
+    }
+    .hexagon {
+      margin:0;
+      width:100%
+    }
+    padding:0;
+    
   }
 }
 .hexagon {
@@ -71,43 +88,41 @@
     display: none;
   }
 }
-
 .hexagon::after,
 .hexagon::before {
-  border-left: var(--hex-margin) solid transparent;
-  border-right: var(--hex-margin) solid transparent;
-  content: '';
-  left: 0;
-  position: absolute;
-  transition: var(--hex-transition);
-  width: 0;
+    border-left: var(--hex-margin) solid transparent;
+    border-right: var(--hex-margin) solid transparent;
+    content: '';
+    left: 0;
+    position: absolute;
+    transition: var(--hex-transition);
+    width: 0;
 }
 .hexagon::after {
-  border-top: var(--hex-border) solid var(--color-hex-default);
-  top: 100%;
-  width: 0;
+    border-top: var(--hex-border) solid var(--color-hex-default);
+    top: 100%;
+    width: 0;
 }
 .hexagon::before {
-  border-bottom: var(--hex-border) solid var(--color-hex-default);
-  bottom: 100%;
+    border-bottom: var(--hex-border) solid var(--color-hex-default);
+    bottom: 100%;
 }
-
-.hexagon:hover {
-  opacity:1;
-}
-
-.hexagon:hover {
-  .showIcon{
-    display:none;
+@media only screen and (min-width: 769px) {
+  .hexagon:hover {
+    opacity:1;
   }
-  .showText{
-    display:block;
-    text-decoration: none;
-    color:#ffff;
+  
+  .hexagon:hover {
+    .showIcon{
+      display:none;
+    }
+    .showText{
+      display:block;
+      text-decoration: none;
+      color:#ffff;
+    }
   }
-}
 
-@media only screen and (min-width: 768px) {
   .hexagon-container.split {
     .hexagon:nth-child(8n + 3),
     .hexagon:nth-child(8n + 4),
@@ -116,16 +131,7 @@
       margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
     }
   }
-}
-@media only screen and (max-width: 768px) {
-  .hexagon-container.split {
-    .hexagon:nth-child(8n + 5),
-    .hexagon:nth-child(8n + 6),
-    .hexagon:nth-child(8n + 7),
-    .hexagon:nth-child(8n + 8) {
-      margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
-    }
-  }
+  
 }
 .hexagon-container:not(.split) {
   .hexagon:nth-child(8n + 5),
@@ -134,7 +140,6 @@
   .hexagon:nth-child(8n + 8) {
     margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
   }
-
 }
 .hexagon > svg {
   height: 75%;

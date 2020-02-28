@@ -3,7 +3,7 @@
     <div
       :class="
         splitMode
-          ? 'hexagon-container split col-md-4 ml-2'
+          ? 'hexagon-container split col-md-4'
           : 'hexagon-container my-auto'
       "
     >
