@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app :dark="darkModeComputed">
     <v-container
       :class="{ 'text-center p-container': true, header: splitMode }"
       fluid
@@ -9,7 +9,11 @@
     </v-container>
     <CookieControl></CookieControl>
     <v-container class="text-center my-auto" fluid>
-      <ButtonHexagonCollection name="menu" @split="splitMode = arguments[0]">
+      <ButtonHexagonCollection
+        name="menu"
+        :split-mode="splitMode"
+        @split="splitMode = arguments[0]"
+      >
         <template slot-scope="scope">
           <BaseIconButton
             name="home"
@@ -91,7 +95,7 @@ export default {
       fixed: false,
       darkMode: true,
       homeIcon: mdiHome,
-      splitMode: false,
+      splitMode: this.$route.path !== '/',
       navigation: {
         about: {
           name: 'about',

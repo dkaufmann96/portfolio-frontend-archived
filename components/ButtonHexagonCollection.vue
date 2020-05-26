@@ -3,7 +3,7 @@
     <div
       :class="
         splitMode
-          ? 'hexagon-container split col-md-4'
+          ? 'hexagon-container split col-md-3'
           : 'hexagon-container my-auto'
       "
     >
@@ -17,9 +17,10 @@
 <script>
 export default {
   name: 'ButtonHexagonCollection',
-  data() {
-    return {
-      splitMode: false
+  props: {
+    splitMode: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
