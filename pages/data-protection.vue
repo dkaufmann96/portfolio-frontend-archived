@@ -1,5 +1,5 @@
 <template>
-  <div class="data-protectio container">
+  <div class="data-protection container">
     <h2 class="adsimple-221113278">EU-Streitschlichtung</h2>
     <p>
       Gemäß Verordnung über Online-Streitbeilegung in Verbraucherangelegenheiten
