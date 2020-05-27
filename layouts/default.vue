@@ -52,7 +52,7 @@
         </template>
       </ButtonHexagonCollection>
     </v-container>
-    <v-footer padless color="#fafafa">
+    <v-footer padless>
       <span class="footer">
         &copy; Daniel Kaufmann {{ new Date().getFullYear() }}</span
       >
