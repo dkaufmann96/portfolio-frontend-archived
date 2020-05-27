@@ -64,11 +64,11 @@
 </template>
 
 <script>
-import BaseIconButton from '@/components/BaseIconButton'
+import BaseIconButton from '@/components/buttons/BaseIconButton'
 
-import SocialButton from '@/components/SocialButton'
-import ButtonHexagonCollection from '@/components/ButtonHexagonCollection'
-import CookieControl from '@/components/CookieControl'
+import SocialButton from '@/components/buttons/SocialButton'
+import ButtonHexagonCollection from '@/components/buttons/ButtonHexagonCollection'
+import CookieControl from '@/components/buttons/CookieControl'
 
 import {
   mdiHome,

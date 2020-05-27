@@ -1,15 +1,13 @@
 <template>
-  <div :class="splitMode ? 'sticky-container row' : 'p-container row'">
+  <div :class="split ? 'sticky-container row' : 'p-container row'">
     <div
       :class="
-        splitMode
-          ? 'hexagon-container split col-md-3'
-          : 'hexagon-container my-auto'
+        split ? 'hexagon-container split col-md-3' : 'hexagon-container my-auto'
       "
     >
       <slot :splitHexagon="splitHexagon" :uniteHexagon="uniteHexagon"></slot>
     </div>
-    <div v-show="splitMode" class="col-md-6">
+    <div v-show="split" class="col-md-6">
       <slot name="content"></slot>
     </div>
   </div>
@@ -23,13 +21,18 @@ export default {
       default: false
     }
   },
+  data() {
+    return {
+      split: this.splitMode
+    }
+  },
   methods: {
     uniteHexagon() {
-      this.splitMode = false
+      this.split = false
       this.$emit('split', false)
     },
     splitHexagon() {
-      this.splitMode = true
+      this.split = true
       this.$emit('split', true)
     }
   }
