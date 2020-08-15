@@ -56,7 +56,9 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/component-cache',
     'nuxt-webfontloader',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/apollo',
+    '@nuxtjs/markdownit'
   ],
   render: {
     static: {
