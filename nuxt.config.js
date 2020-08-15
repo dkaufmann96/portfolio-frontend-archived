@@ -84,6 +84,13 @@ export default {
       name: process.env.DEFAULT_TITLE
     }
   },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || 'http://localhost:1337/graphql'
+      }
+    }
+  },
   'google-gtag': {
     id: 'UA-148069913-1',
     config: {
