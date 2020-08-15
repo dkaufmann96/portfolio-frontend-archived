@@ -29,7 +29,7 @@
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sitemap": "^2.0.1",
     "cookie-universal-nuxt": "^2.1.0",
-    "nuxt": "^2.11.0",
+    "nuxt": "^2.14.0",
     "nuxt-webfontloader": "^1.1.0"
   },
   "devDependencies": {
