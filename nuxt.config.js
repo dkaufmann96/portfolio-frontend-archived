@@ -21,6 +21,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  env: {
+    strapiBaseUri: process.env.API_URL || 'http://localhost:1337'
+  },
   /*
    ** Customize the progress-bar color
    */
