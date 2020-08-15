@@ -116,5 +116,11 @@ export default {
     extend(config, ctx) {},
     analyze: false,
     extractCSS: true
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
   }
 }
