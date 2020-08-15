@@ -24,8 +24,10 @@
   "dependencies": {
     "@dkaufmann96/nuxtjs-google-gtag": "git+https://github.com/dkaufmann96/nuxtjs-google-gtag.git",
     "@mdi/js": "^4.8.95",
+    "@nuxtjs/apollo": "^4.0.1-rc.3",
     "@nuxtjs/axios": "^5.3.6",
     "@nuxtjs/component-cache": "^1.1.5",
+    "@nuxtjs/markdownit": "^1.2.10",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/sitemap": "^2.0.1",
     "cookie-universal-nuxt": "^2.1.0",
