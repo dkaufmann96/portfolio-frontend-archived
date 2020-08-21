@@ -6,7 +6,7 @@
   </main>
 </template>
 <script>
-import pagesQuery from '~/apollo/queries/page/pages'
+import pagesQuery from '~/apollo/queries/page/page'
 
 export default {
   async asyncData({ app, route, redirect }) {
