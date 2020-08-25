@@ -22,11 +22,20 @@ export default {
     if (result.data.pages.length === 0) {
       redirect('/404')
     }
-    return { page: result.data.pages[0] }
-  },
-  data() {
+    const defaultRender =
+      app.$md.renderer.rules.link_open ||
+      function(tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options)
+      }
+    app.$md.renderer.rules.image = (tokens, idx, options, env, self) => {
+      const index = tokens[idx].attrIndex('src')
+      tokens[idx].attrs[index][1] =
+        process.env.strapiBaseUri + tokens[idx].attrs[index][1]
+      return defaultRender(tokens, idx, options, env, self)
+    }
     return {
-      api_url: process.env.strapiBaseUri
+      page: result.data.pages[0],
+      content: app.$md.render(result.data.pages[0].content)
     }
   }
 }
