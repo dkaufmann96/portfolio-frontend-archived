@@ -1,8 +1,8 @@
 <template>
   <main v-if="page">
-    <h1>{{ page.title }}</h1>
-    <!-- eslint-disable-next-line vue/no-v-html -->
-    <div id="page" v-html="$md.render(page.content)"></div>
+    <h1 class="text-h3 mb-10">{{ page.title }}</h1>
+    <!-- eslint-disable vue/no-v-html -->
+    <div id="page" class="text-body-1" v-html="content"></div>
   </main>
 </template>
 <script>
