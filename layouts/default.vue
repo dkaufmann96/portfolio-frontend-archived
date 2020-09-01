@@ -4,7 +4,7 @@
       :class="{
         'd-flex justify-content-center align-center': !splitMode,
         'pa-sm-10 d-xs-flex justify-xs-content-center align-xs-center': splitMode,
-        'mr-0': true
+        'mr-0': true,
       }"
     >
       <v-col :md="splitMode ? 3 : 12" :cols="12">
@@ -12,7 +12,7 @@
           <v-container
             :class="{
               'mobile-none': splitMode,
-              'd-flex flex-column align-sm-center': !splitMode
+              'd-flex flex-column align-sm-center': !splitMode,
             }"
           >
             <h1 class="text-h4 mb-2">Daniel Kaufmann</h1>
@@ -106,11 +106,11 @@ import {
   mdiIframeOutline,
   mdiEmail,
   mdiInformationVariant,
-  mdiGithubCircle,
+  mdiGithub,
   mdiXing,
   mdiLinkedin,
   mdiGitlab,
-  mdiTwitter
+  mdiTwitter,
 } from '@mdi/js'
 
 export default {
@@ -118,7 +118,7 @@ export default {
     BaseIconButton,
     SocialButton,
     ButtonHexagonCollection,
-    CookieControl
+    CookieControl,
   },
   data() {
     return {
@@ -131,59 +131,59 @@ export default {
           name: 'about',
           label: 'About',
           icon: mdiAccount,
-          link: '/about'
+          link: '/about',
         },
         projects: {
           name: 'projects',
           label: 'Projects',
           icon: mdiIframeOutline,
-          link: '/projects'
+          link: '/projects',
         },
         contact: {
           name: 'contact',
           label: 'Contact',
           icon: mdiEmail,
-          link: '/contact'
+          link: '/contact',
         },
         imprint: {
           name: 'imprint',
           label: 'Impressum',
           icon: mdiInformationVariant,
-          link: '/imprint'
-        }
+          link: '/imprint',
+        },
       },
       socials: {
         github: {
           name: 'github',
           label: 'Github',
-          icon: mdiGithubCircle,
-          link: '//www.github.com/dkaufmann96'
+          icon: mdiGithub,
+          link: '//www.github.com/dkaufmann96',
         },
         xing: {
           name: 'xing',
           label: 'Xing',
           icon: mdiXing,
-          link: '//www.xing.com/profile/Daniel_Kaufmann87'
+          link: '//www.xing.com/profile/Daniel_Kaufmann87',
         },
         linkedin: {
           name: 'linkedin',
           label: 'Linkedin',
           icon: mdiLinkedin,
-          link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/'
+          link: 'https://www.linkedin.com/in/daniel-kaufmann-5364a1187/',
         },
         gitlab: {
           name: 'gitlab',
           label: 'Gitlab',
           icon: mdiGitlab,
-          link: 'https://gitlab.com/dkaufmann96'
+          link: 'https://gitlab.com/dkaufmann96',
         },
         twitter: {
           name: 'twitter',
           label: 'Twitter',
           icon: mdiTwitter,
-          link: 'https://twitter.com/dkaufmann96'
-        }
-      }
+          link: 'https://twitter.com/dkaufmann96',
+        },
+      },
     }
   },
   computed: {
@@ -196,12 +196,12 @@ export default {
         // eslint-disable-next-line vue/no-side-effects-in-computed-properties
         return (this.$vuetify.theme.dark = false)
       }
-    }
+    },
   },
   head() {
     return {
-      title: 'Home'
+      title: 'Home',
     }
-  }
+  },
 }
 </script>

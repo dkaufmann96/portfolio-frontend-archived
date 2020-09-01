@@ -18,12 +18,12 @@ export default {
   props: {
     splitMode: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data() {
     return {
-      split: this.splitMode
+      split: this.splitMode,
     }
   },
   methods: {
@@ -34,7 +34,7 @@ export default {
     splitHexagon() {
       this.split = true
       this.$emit('split', true)
-    }
-  }
+    },
+  },
 }
 </script>

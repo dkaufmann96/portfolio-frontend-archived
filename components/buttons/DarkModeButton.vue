@@ -1,5 +1,5 @@
-<template
-  ><BaseIconButton
+<template>
+  <BaseIconButton
     :name="name"
     label="Dark Mode"
     :icon="iconComputed"
@@ -10,13 +10,13 @@
 import BaseIconButton from './BaseIconButton'
 export default {
   components: {
-    BaseIconButton
+    BaseIconButton,
   },
   extends: BaseIconButton,
   computed: {
     iconComputed() {
       return this.darkMode ? 'mdi-weather-sunny' : 'mdi-weather-night'
-    }
-  }
+    },
+  },
 }
 </script>

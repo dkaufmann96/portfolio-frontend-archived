@@ -11,27 +11,27 @@
 import BaseIconButton from './BaseIconButton'
 export default {
   components: {
-    BaseIconButton
+    BaseIconButton,
   },
   extends: BaseIconButton,
   props: {
     icon: {
       type: String,
-      default: null
+      default: null,
     },
     link: {
       type: String,
-      default: null
+      default: null,
     },
     ariaLabel: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   methods: {
     followLink() {
       window.location.href = this.link
-    }
-  }
+    },
+  },
 }
 </script>

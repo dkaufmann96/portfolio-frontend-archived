@@ -16,17 +16,19 @@ export default {
       prefetch: false,
       query: pagesQuery,
       variables: {
-        slug: path
-      }
+        slug: path,
+      },
     })
     if (result.data.pages.length === 0) {
       redirect('/404')
     }
+    // get default renderer
     const defaultRender =
       app.$md.renderer.rules.link_open ||
-      function(tokens, idx, options, env, self) {
+      function (tokens, idx, options, env, self) {
         return self.renderToken(tokens, idx, options)
       }
+    // override image rule to prepend api base-url
     app.$md.renderer.rules.image = (tokens, idx, options, env, self) => {
       const index = tokens[idx].attrIndex('src')
       tokens[idx].attrs[index][1] =
@@ -35,8 +37,10 @@ export default {
     }
     return {
       page: result.data.pages[0],
-      content: app.$md.render(result.data.pages[0].content)
+      content: result.data.pages[0]
+        ? app.$md.render(result.data.pages[0].content)
+        : '',
     }
-  }
+  },
 }
 </script>
