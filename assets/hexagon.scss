@@ -1,65 +1,135 @@
 /* Change this to change the appearance of the hexaons */
-$hex-width: 120px;
-$hex-between: 5px;
-$hex-icon: 50px;
+$hex-width: (
+  lg: 120px,
+  md: 120px,
+  sm: 90px,
+  xs: 70px,
+);
+$hex-between: (
+  lg: 5px,
+  md: 5px,
+  sm: 5px,
+  xs: 5px,
+);
+$hex-icon: (
+  lg: 50px,
+  md: 50px,
+  sm: 30px,
+  xs: 15px,
+);
 
-@media only screen and (max-width: 960px) {
-  $hex-width: 70px;
-  $hex-between: 5px;
-  $hex-icon: 15px;
+@function hex-width($size) {
+  @return map-get($hex-width, $size);
+}
+@function hex-between($size) {
+  @return map-get($hex-between, $size);
+}
+@function hex-icon($size) {
+  @return map-get($hex-icon, $size);
+}
+@function hex-height($size) {
+  @return calc(#{hex-width($size) / 1.73});
+}
+@function hex-margin($size) {
+  @return calc(#{hex-width($size) / 2});
+}
+@function hex-border($size) {
+  @return calc(#{hex-margin($size) / 1.73});
+}
+@function grid-auto-rows($size) {
+  @return calc(#{hex-width($size) - 28.87px / 2});
 }
 
-/* Other hexagon dimentions */
-$hex-height: calc(#{$hex-width / 1.73} /* sqrt(3) */);
-$hex-margin: calc(#{$hex-width / 2});
-$hex-border: calc(#{$hex-margin / 1.73} /* sqrt(3) */);
 $hex-transition: all 0.2s ease;
-
-/* Colors */
-$color-hex-default: #000000;
-$color-home: #a30b0b;
-$color-about: #284eb6;
-$color-projects: #279141;
-$color-contact: #467ffa;
-$color-imprint: #0e78a1;
-$color-darkmode-light: #c8cedf;
-$color-darkmode-dark: #27282c9c;
-$color-github: #24292e;
-$color-gitlab: #6610f2;
-$color-linkedin: #0077b5;
-$color-xing: #007575;
-$color-twitter: #1da1f2;
 
 /* Hexagons */
 .hexagon-container {
   display: grid;
-  grid-template-columns: $hex-width $hex-width $hex-width $hex-width;
-  grid-auto-rows: calc(#{$hex-width - 28.87px / 2});
-  grid-gap: $hex-between $hex-between;
-  padding-bottom: $hex-border;
   top: 0;
   position: -webkit-sticky;
   position: sticky;
-}
-.hexagon-container.split {
-  @media only screen and (min-width: 961px) {
-    grid-template-columns: $hex-width $hex-width;
+  @media only screen and (min-width: $lg-min-width) {
+    grid-auto-rows: grid-auto-rows(lg);
+    grid-gap: hex-between(lg) hex-between(lg);
+    padding-bottom: hex-border(lg);
+    &.split {
+      grid-template-columns: hex-width(lg) hex-width(lg);
+      .hexagon:nth-child(8n + 3),
+      .hexagon:nth-child(8n + 4),
+      .hexagon:nth-child(8n + 7),
+      .hexagon:nth-child(8n + 8) {
+        margin-left: calc(#{hex-width(lg)} / 2 + #{hex-between(lg)} / 2);
+      }
+    }
+    &:not(.split) {
+      .hexagon:nth-child(8n + 5),
+      .hexagon:nth-child(8n + 6),
+      .hexagon:nth-child(8n + 7),
+      .hexagon:nth-child(8n + 8) {
+        margin-left: calc(#{hex-width(lg)} / 2 + #{hex-between(lg)} / 2);
+      }
+    }
+    grid-template-columns: hex-width(lg) hex-width(lg) hex-width(lg) hex-width(
+        lg
+      );
   }
-  @media only screen and (max-width: 960px) {
-    $hex-width: 20%;
-    grid-template-columns: $hex-width $hex-width $hex-width $hex-width $hex-width;
-    grid-gap: 0;
-    position: fixed;
-    .hexagon::after,
-    .hexagon::before,
-    .hexagon:nth-child(n + 6) {
-      display: none;
+  @media only screen and (max-width: $md-max-width) {
+    grid-auto-rows: grid-auto-rows(md);
+    grid-gap: hex-between(md) hex-between(md);
+    padding-bottom: hex-border(md);
+    &:not(.split) {
+      grid-template-columns: hex-width(md) hex-width(md);
+      .hexagon:nth-child(8n + 3),
+      .hexagon:nth-child(8n + 4),
+      .hexagon:nth-child(8n + 7),
+      .hexagon:nth-child(8n + 8) {
+        margin-left: calc(#{hex-width(md)} / 2 + #{hex-between(md)} / 2);
+      }
     }
-    .hexagon {
-      margin: 0;
-      width: 100%;
+    &.split {
+      $hex-width: 20%;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-gap: 0;
+      position: fixed;
+      .hexagon::after,
+      .hexagon::before,
+      .hexagon:nth-child(n + 6) {
+        display: none;
+      }
+      .hexagon {
+        margin: 0;
+        width: 100%;
+      }
+      padding: 0;
     }
-    padding: 0;
+  }
+  @media only screen and (max-width: $sm-max-width) {
+    grid-auto-rows: grid-auto-rows(sm);
+    grid-gap: hex-between(sm) hex-between(sm);
+    padding-bottom: hex-border(sm);
+    &:not(.split) {
+      grid-template-columns: hex-width(sm) hex-width(sm);
+      .hexagon:nth-child(8n + 3),
+      .hexagon:nth-child(8n + 4),
+      .hexagon:nth-child(8n + 7),
+      .hexagon:nth-child(8n + 8) {
+        margin-left: calc(#{hex-width(sm)} / 2 + #{hex-between(sm)} / 2);
+      }
+    }
+  }
+  @media only screen and (max-width: $xs-max-width) {
+    grid-auto-rows: grid-auto-rows(xs);
+    grid-gap: hex-between(xs) hex-between(xs);
+    padding-bottom: hex-border(xs);
+    &:not(.split) {
+      grid-template-columns: hex-width(xs) hex-width(xs);
+      .hexagon:nth-child(8n + 3),
+      .hexagon:nth-child(8n + 4),
+      .hexagon:nth-child(8n + 7),
+      .hexagon:nth-child(8n + 8) {
+        margin-left: calc(#{hex-width(xs)} / 2 + #{hex-between(xs)} / 2);
+      }
+    }
   }
 }
 .hexagon {
@@ -68,24 +138,53 @@ $color-twitter: #1da1f2;
   cursor: pointer;
   display: flex;
   fill: white;
-  height: $hex-height;
   justify-content: center;
-  margin: $hex-border 0;
   position: relative;
   transition: $hex-transition;
-  width: $hex-width;
+
   opacity: 0.8;
-  @media only screen and (max-width: 960px) {
-    font-size: 12px;
-  }
   .showText {
     display: none;
+  }
+  @media only screen and (min-width: $lg-min-width) {
+    height: hex-height(lg);
+    width: hex-width(lg);
+    margin: hex-border(lg) 0;
+  }
+  @media only screen and (max-width: $md-max-width) {
+    height: hex-height(md);
+    width: hex-width(md);
+    margin: hex-border(md) 0;
+  }
+  @media only screen and (max-width: $sm-max-width) {
+    height: hex-height(sm);
+    width: hex-width(sm);
+    margin: hex-border(sm) 0;
+  }
+  @media only screen and (max-width: $xs-max-width) {
+    height: hex-height(xs);
+    width: hex-width(xs);
+    margin: hex-border(xs) 0;
   }
 }
 .hexagon::after,
 .hexagon::before {
-  border-left: $hex-margin solid transparent;
-  border-right: $hex-margin solid transparent;
+  @media only screen and (min-width: $lg-min-width) {
+    border-left: hex-margin(lg) solid transparent;
+    border-right: hex-margin(lg) solid transparent;
+  }
+  @media only screen and (max-width: $md-max-width) {
+    border-left: hex-margin(md) solid transparent;
+    border-right: hex-margin(md) solid transparent;
+  }
+  @media only screen and (max-width: $sm-max-width) {
+    border-left: hex-margin(sm) solid transparent;
+    border-right: hex-margin(sm) solid transparent;
+  }
+  @media only screen and (max-width: $xs-max-width) {
+    border-left: hex-margin(xs) solid transparent;
+    border-right: hex-margin(xs) solid transparent;
+  }
   content: '';
   left: 0;
   position: absolute;
@@ -93,15 +192,37 @@ $color-twitter: #1da1f2;
   width: 0;
 }
 .hexagon::after {
-  border-top: $hex-border solid $color-hex-default;
+  @media only screen and (min-width: $lg-min-width) {
+    border-top: hex-border(lg) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $md-max-width) {
+    border-top: hex-border(md) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $sm-max-width) {
+    border-top: hex-border(sm) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $xs-max-width) {
+    border-top: hex-border(xs) solid $color-hex-default;
+  }
   top: 100%;
   width: 0;
 }
 .hexagon::before {
-  border-bottom: $hex-border solid $color-hex-default;
+  @media only screen and (min-width: $lg-min-width) {
+    border-bottom: hex-border(lg) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $md-max-width) {
+    border-bottom: hex-border(md) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $sm-max-width) {
+    border-bottom: hex-border(sm) solid $color-hex-default;
+  }
+  @media only screen and (max-width: $xs-max-width) {
+    border-bottom: hex-border(xs) solid $color-hex-default;
+  }
   bottom: 100%;
 }
-@media only screen and (min-width: 961px) {
+@media only screen and (min-width: $lg-min-width) {
   .hexagon:hover {
     opacity: 1;
   }
@@ -116,24 +237,8 @@ $color-twitter: #1da1f2;
       color: #ffff;
     }
   }
+}
 
-  .hexagon-container.split {
-    .hexagon:nth-child(8n + 3),
-    .hexagon:nth-child(8n + 4),
-    .hexagon:nth-child(8n + 7),
-    .hexagon:nth-child(8n + 8) {
-      margin-left: calc(#{$hex-width} / 2 + #{$hex-between} / 2);
-    }
-  }
-}
-.hexagon-container:not(.split) {
-  .hexagon:nth-child(8n + 5),
-  .hexagon:nth-child(8n + 6),
-  .hexagon:nth-child(8n + 7),
-  .hexagon:nth-child(8n + 8) {
-    margin-left: calc(#{$hex-width} / 2 + #{$hex-between} / 2);
-  }
-}
 .hexagon > svg {
   height: 75%;
   transition: $hex-transition;

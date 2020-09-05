@@ -3,11 +3,11 @@
     <v-row
       :class="{
         'd-flex justify-content-center align-center': !splitMode,
-        'pa-sm-10 d-xs-flex justify-xs-content-center align-xs-center': splitMode,
+        'pa-lg-10 d-xs-flex justify-xs-content-center align-xs-center': splitMode,
         'mr-0': true,
       }"
     >
-      <v-col :md="splitMode ? 3 : 12" :cols="12">
+      <v-col :lg="splitMode ? 3 : 12" :cols="12">
         <div :class="{ 'sticky-container': splitMode }">
           <v-container
             :class="{

@@ -2,12 +2,12 @@
   <div :class="split ? 'sticky-container row' : 'p-container row'">
     <div
       :class="
-        split ? 'hexagon-container split col-md-3' : 'hexagon-container my-auto'
+        split ? 'hexagon-container split col-lg-3' : 'hexagon-container my-auto'
       "
     >
       <slot :splitHexagon="splitHexagon" :uniteHexagon="uniteHexagon"></slot>
     </div>
-    <div v-show="split" class="col-md-6">
+    <div v-show="split" class="col-lg-6">
       <slot name="content"></slot>
     </div>
   </div>
