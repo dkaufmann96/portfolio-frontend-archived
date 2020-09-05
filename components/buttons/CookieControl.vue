@@ -64,7 +64,7 @@ import BaseButton from './BaseButton'
 
 export default {
   components: {
-    BaseButton
+    BaseButton,
   },
   data() {
     return {
@@ -74,7 +74,7 @@ export default {
         this.$cookies.get('optional-cookies') !== undefined
           ? this.$cookies.get('optional-cookies').activated
           : true,
-      settingsOpened: false
+      settingsOpened: false,
     }
   },
   mounted() {
@@ -90,7 +90,7 @@ export default {
       this.analytics ? this.activateGTM() : this.deactivateGTM()
       this.$cookies.set('preferences-set', {
         path: '/',
-        maxAge: 60 * 60 * 24 * 7
+        maxAge: 60 * 60 * 24 * 7,
       })
     },
     activateGTM() {
@@ -98,7 +98,7 @@ export default {
       this.$cookies.set('optional-cookies', {
         activated: true,
         path: '/',
-        maxAge: 60 * 60 * 24 * 7
+        maxAge: 60 * 60 * 24 * 7,
       })
     },
     deactivateGTM() {
@@ -106,10 +106,10 @@ export default {
       this.$cookies.set('optional-cookies', {
         activated: false,
         path: '/',
-        maxAge: 60 * 60 * 24 * 7
+        maxAge: 60 * 60 * 24 * 7,
       })
       window.location.reload()
-    }
-  }
+    },
+  },
 }
 </script>

@@ -14,30 +14,30 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     darkMode: {
       type: Boolean,
-      default: true
+      default: true,
     },
     label: {
       type: String,
-      required: true
+      required: true,
     },
     color: {
       type: String,
       required: false,
-      default: 'gray'
+      default: 'gray',
     },
     ariaLabel: {
       type: String,
-      required: true
+      required: true,
     },
     block: {
       type: Boolean,
       required: false,
-      default: false
-    }
-  }
+      default: false,
+    },
+  },
 }
 </script>

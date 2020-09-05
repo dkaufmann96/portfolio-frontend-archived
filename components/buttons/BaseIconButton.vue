@@ -45,38 +45,38 @@ export default {
   props: {
     name: {
       type: String,
-      default: 'button'
+      default: 'button',
     },
     label: {
       type: String,
-      default: ''
+      default: '',
     },
     link: {
       type: String,
       required: false,
-      default: ''
+      default: '',
     },
     externalLink: {
       type: String,
       required: false,
-      default: null
+      default: null,
     },
     darkMode: {
       type: Boolean,
-      default: true
+      default: true,
     },
     icon: {
       type: String,
-      default: null
+      default: null,
     },
     showText: {
       type: Boolean,
-      default: false
+      default: false,
     },
     ariaLabel: {
       type: String,
-      required: true
-    }
-  }
+      required: true,
+    },
+  },
 }
 </script>

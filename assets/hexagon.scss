@@ -1,125 +1,119 @@
+/* Change this to change the appearance of the hexaons */
+$hex-width: 120px;
+$hex-between: 5px;
+$hex-icon: 50px;
 
-:root {
-  /* Change this to change the appearance of the hexaons */
-  --hex-width: 120px;
-  --hex-between: 5px;
-  --hex-icon: 50px;
-
-  @media only screen and (max-width: 960px) {
-    --hex-width: 70px;
-    --hex-between: 5px;
-    --hex-icon: 15px;
-  }
-
-  /* Other hexagon dimentions */
-  --hex-height: calc(var(--hex-width) / 1.73 /* sqrt(3) */);
-  --hex-margin: calc(var(--hex-width) / 2);
-  --hex-border: calc(var(--hex-margin) / 1.73 /* sqrt(3) */);
-  --hex-transition: all 0.2s ease;
-
-  /* Colors */
-  --color-hex-default: #000000;
-  --color-home: #a30b0b;
-  --color-about: #284eb6;
-  --color-projects: #279141;
-  --color-contact: #467ffa;
-  --color-imprint: #0e78a1;
-  --color-darkmode-light: #c8cedf;
-  --color-darkmode-dark: #27282c9c;
-  --color-github: #24292e;
-  --color-gitlab:#6610f2;
-  --color-linkedin: #0077b5;
-  --color-xing: #007575;
-  --color-twitter: #1da1f2;
+@media only screen and (max-width: 960px) {
+  $hex-width: 70px;
+  $hex-between: 5px;
+  $hex-icon: 15px;
 }
+
+/* Other hexagon dimentions */
+$hex-height: calc(#{$hex-width / 1.73} /* sqrt(3) */);
+$hex-margin: calc(#{$hex-width / 2});
+$hex-border: calc(#{$hex-margin / 1.73} /* sqrt(3) */);
+$hex-transition: all 0.2s ease;
+
+/* Colors */
+$color-hex-default: #000000;
+$color-home: #a30b0b;
+$color-about: #284eb6;
+$color-projects: #279141;
+$color-contact: #467ffa;
+$color-imprint: #0e78a1;
+$color-darkmode-light: #c8cedf;
+$color-darkmode-dark: #27282c9c;
+$color-github: #24292e;
+$color-gitlab: #6610f2;
+$color-linkedin: #0077b5;
+$color-xing: #007575;
+$color-twitter: #1da1f2;
 
 /* Hexagons */
 .hexagon-container {
   display: grid;
-  grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(
-      --hex-width
-    );
-  grid-auto-rows: calc(var(--hex-width) - 28.87px / 2);
-  grid-gap: var(--hex-between) var(--hex-between);
-  padding-bottom: var(--hex-border);
-  top:0;
+  grid-template-columns: $hex-width $hex-width $hex-width $hex-width;
+  grid-auto-rows: calc(#{$hex-width - 28.87px / 2});
+  grid-gap: $hex-between $hex-between;
+  padding-bottom: $hex-border;
+  top: 0;
   position: -webkit-sticky;
-  position:sticky;
+  position: sticky;
 }
-.hexagon-container.split{
+.hexagon-container.split {
   @media only screen and (min-width: 961px) {
-    grid-template-columns: var(--hex-width) var(--hex-width);
+    grid-template-columns: $hex-width $hex-width;
   }
   @media only screen and (max-width: 960px) {
-    --hex-width: 20%;
-    grid-template-columns: var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width) var(--hex-width);
+    $hex-width: 20%;
+    grid-template-columns: $hex-width $hex-width $hex-width $hex-width $hex-width;
     grid-gap: 0;
-    position:fixed;
+    position: fixed;
     .hexagon::after,
     .hexagon::before,
     .hexagon:nth-child(n + 6) {
-      display:none
+      display: none;
     }
     .hexagon {
-      margin:0;
-      width:100%
+      margin: 0;
+      width: 100%;
     }
-    padding:0;
-    
+    padding: 0;
   }
 }
 .hexagon {
   align-items: center;
-  background-color: var(--color-hex-default);
+  background-color: $color-hex-default;
   cursor: pointer;
   display: flex;
   fill: white;
-  height: var(--hex-height);
+  height: $hex-height;
   justify-content: center;
-  margin: var(--hex-border) 0;
+  margin: $hex-border 0;
   position: relative;
-  transition: var(--hex-transition);
-  width: var(--hex-width);
-  opacity:0.8;
+  transition: $hex-transition;
+  width: $hex-width;
+  opacity: 0.8;
   @media only screen and (max-width: 960px) {
-    font-size:12px;
+    font-size: 12px;
   }
-  .showText{
+  .showText {
     display: none;
   }
 }
 .hexagon::after,
 .hexagon::before {
-    border-left: var(--hex-margin) solid transparent;
-    border-right: var(--hex-margin) solid transparent;
-    content: '';
-    left: 0;
-    position: absolute;
-    transition: var(--hex-transition);
-    width: 0;
+  border-left: $hex-margin solid transparent;
+  border-right: $hex-margin solid transparent;
+  content: '';
+  left: 0;
+  position: absolute;
+  transition: $hex-transition;
+  width: 0;
 }
 .hexagon::after {
-    border-top: var(--hex-border) solid var(--color-hex-default);
-    top: 100%;
-    width: 0;
+  border-top: $hex-border solid $color-hex-default;
+  top: 100%;
+  width: 0;
 }
 .hexagon::before {
-    border-bottom: var(--hex-border) solid var(--color-hex-default);
-    bottom: 100%;
+  border-bottom: $hex-border solid $color-hex-default;
+  bottom: 100%;
 }
 @media only screen and (min-width: 961px) {
   .hexagon:hover {
-    opacity:1;
+    opacity: 1;
   }
-  
+
   .hexagon:hover {
-    .showIcon{
-      display:none;
+    .showIcon {
+      display: none;
     }
-    .showText{
-      display:block;
+    .showText {
+      display: block;
       text-decoration: none;
-      color:#ffff;
+      color: #ffff;
     }
   }
 
@@ -128,128 +122,127 @@
     .hexagon:nth-child(8n + 4),
     .hexagon:nth-child(8n + 7),
     .hexagon:nth-child(8n + 8) {
-      margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+      margin-left: calc(#{$hex-width} / 2 + #{$hex-between} / 2);
     }
   }
-  
 }
 .hexagon-container:not(.split) {
   .hexagon:nth-child(8n + 5),
   .hexagon:nth-child(8n + 6),
   .hexagon:nth-child(8n + 7),
   .hexagon:nth-child(8n + 8) {
-    margin-left: calc(var(--hex-width) / 2 + var(--hex-between) / 2);
+    margin-left: calc(#{$hex-width} / 2 + #{$hex-between} / 2);
   }
 }
 .hexagon > svg {
   height: 75%;
-  transition: var(--hex-transition);
+  transition: $hex-transition;
 }
 
 .color-home {
-  background-color: var(--color-home);
+  background-color: $color-home;
 }
 .color-home::after,
 .color-home::before {
-  border-top-color: var(--color-home);
-  border-bottom-color: var(--color-home);
+  border-top-color: $color-home;
+  border-bottom-color: $color-home;
 }
 
 .color-about {
-  background-color: var(--color-about);
+  background-color: $color-about;
 }
 .color-about::after,
 .color-about::before {
-  border-top-color: var(--color-about);
-  border-bottom-color: var(--color-about);
+  border-top-color: $color-about;
+  border-bottom-color: $color-about;
 }
 
 .color-projects {
-  background-color: var(--color-projects);
+  background-color: $color-projects;
 }
 .color-projects::after,
 .color-projects::before {
-  border-top-color: var(--color-projects);
-  border-bottom-color: var(--color-projects);
+  border-top-color: $color-projects;
+  border-bottom-color: $color-projects;
 }
 
 .color-contact {
-  background-color: var(--color-contact);
+  background-color: $color-contact;
 }
 .color-contact::after,
 .color-contact::before {
-  border-top-color: var(--color-contact);
-  border-bottom-color: var(--color-contact);
+  border-top-color: $color-contact;
+  border-bottom-color: $color-contact;
 }
 
 .color-imprint {
-  background-color: var(--color-imprint);
+  background-color: $color-imprint;
 }
 .color-imprint::after,
 .color-imprint::before {
-  border-top-color: var(--color-imprint);
-  border-bottom-color: var(--color-imprint);
+  border-top-color: $color-imprint;
+  border-bottom-color: $color-imprint;
 }
 
 .color-darkmode-light {
-  background-color: var(--color-darkmode-light);
+  background-color: $color-darkmode-light;
 }
 .color-darkmode-light::after,
 .color-darkmode-light::before {
-  border-top-color: var(--color-darkmode-light);
-  border-bottom-color: var(--color-darkmode-light);
+  border-top-color: $color-darkmode-light;
+  border-bottom-color: $color-darkmode-light;
 }
 
 .color-darkmode-dark {
-  background-color: var(--color-darkmode-dark);
+  background-color: $color-darkmode-dark;
 }
 .color-darkmode-dark::after,
 .color-darkmode-dark::before {
-  border-top-color: var(--color-darkmode-dark);
-  border-bottom-color: var(--color-darkmode-dark);
+  border-top-color: $color-darkmode-dark;
+  border-bottom-color: $color-darkmode-dark;
 }
 
 .color-github {
-  background-color: var(--color-github);
+  background-color: $color-github;
 }
 .color-github::after,
 .color-github::before {
-  border-top-color: var(--color-github);
-  border-bottom-color: var(--color-github);
+  border-top-color: $color-github;
+  border-bottom-color: $color-github;
 }
 
 .color-gitlab {
-  background-color: var(--color-gitlab);
+  background-color: $color-gitlab;
 }
 .color-gitlab::after,
 .color-gitlab::before {
-  border-top-color: var(--color-gitlab);
-  border-bottom-color: var(--color-gitlab);
+  border-top-color: $color-gitlab;
+  border-bottom-color: $color-gitlab;
 }
 
 .color-linkedin {
-  background-color: var(--color-linkedin);
+  background-color: $color-linkedin;
 }
 .color-linkedin::after,
 .color-linkedin::before {
-  border-top-color: var(--color-linkedin);
-  border-bottom-color: var(--color-linkedin);
+  border-top-color: $color-linkedin;
+  border-bottom-color: $color-linkedin;
 }
 
 .color-xing {
-  background-color: var(--color-xing);
+  background-color: $color-xing;
 }
 .color-xing::after,
 .color-xing::before {
-  border-top-color: var(--color-xing);
-  border-bottom-color: var(--color-xing);
+  border-top-color: $color-xing;
+  border-bottom-color: $color-xing;
 }
 
 .color-twitter {
-  background-color: var(--color-twitter);
+  background-color: $color-twitter;
 }
 .color-twitter::after,
 .color-twitter::before {
-  border-top-color: var(--color-twitter);
-  border-bottom-color: var(--color-twitter);
+  border-top-color: $color-twitter;
+  border-bottom-color: $color-twitter;
 }

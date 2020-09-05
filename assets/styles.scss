@@ -1,4 +1,4 @@
-@import "~vuetify/src/styles/styles.sass";
+@import '~vuetify/src/styles/styles.sass';
 .v-application {
   body,
   .display-1,
@@ -17,32 +17,34 @@
   h3,
   h4,
   h5,
-  h6
-  .overline {
-    font-weight:600
+  h6 .overline {
+    font-weight: 600;
   }
 }
 .fab-container {
   margin-left: 15px;
 }
-.header {
+.mobile-none {
   @media only screen and (max-width: 960px) {
-    margin-top:20%;
+    display: none;
   }
 }
-.p-container{
-  display:flex;
+.p-container {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  width:100%;
+  width: 100%;
 }
 .sticky-container {
   align-items: flex-start;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
 }
-.footer{
-  color:#b6b6b6;
-  margin:auto;
+.footer {
+  color: #b6b6b6;
+  margin: auto;
 }
-a{
+a {
   text-decoration: none;
 }

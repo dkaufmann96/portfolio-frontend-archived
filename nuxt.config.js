@@ -21,6 +21,9 @@ export default {
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
+  env: {
+    strapiBaseUri: process.env.API_URL || 'http://localhost:1337'
+  },
   /*
    ** Customize the progress-bar color
    */
@@ -53,7 +56,9 @@ export default {
     'cookie-universal-nuxt',
     '@nuxtjs/component-cache',
     'nuxt-webfontloader',
-    '@nuxtjs/sitemap'
+    '@nuxtjs/sitemap',
+    '@nuxtjs/apollo',
+    '@nuxtjs/markdownit'
   ],
   render: {
     static: {
@@ -84,6 +89,13 @@ export default {
       name: process.env.DEFAULT_TITLE
     }
   },
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: process.env.BACKEND_URL || 'http://localhost:1337/graphql'
+      }
+    }
+  },
   'google-gtag': {
     id: 'UA-148069913-1',
     config: {
@@ -104,5 +116,20 @@ export default {
     extend(config, ctx) {},
     analyze: false,
     extractCSS: true
+  },
+  markdownit: {
+    preset: 'default',
+    linkify: true,
+    breaks: true,
+    injected: true
+  },
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'components/Page.vue')
+      })
+    }
   }
 }

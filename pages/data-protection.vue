@@ -1214,14 +1214,14 @@
         >https://www.google.com/intl/de/tagmanager/faq.html</a
       >.
     </p>
-    <p style="margin-top:15px;">
+    <p style="margin-top: 15px">
       Quelle: Erstellt mit dem
       <a
         title="Datenschutz Generator von firmenwebseiten.at"
         href="https://www.firmenwebseiten.at/datenschutz-generator/"
         target="_blank"
         rel="follow"
-        style="text-decoration:none;"
+        style="text-decoration: none"
         >Datenschutz Generator von firmenwebseiten.at</a
       >
       in Kooperation mit
@@ -1230,7 +1230,7 @@
         target="_blank"
         rel="follow"
         title=""
-        style="text-decoration:none;"
+        style="text-decoration: none"
         >meinhaushalt.at</a
       >
     </p>
