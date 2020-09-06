@@ -1,9 +1,9 @@
 <template>
-  <div v-if="page" class="px-sm-10">
+  <v-flex v-if="page" class="px-sm-10" md6>
     <h1 class="text-h3 mb-10">{{ page.title }}</h1>
     <!-- eslint-disable vue/no-v-html -->
     <div id="page" class="text-body-1" v-html="content"></div>
-  </div>
+  </v-flex>
 </template>
 <script>
 import pagesQuery from '~/apollo/queries/page/page'
