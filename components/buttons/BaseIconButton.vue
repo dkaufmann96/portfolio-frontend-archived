@@ -6,7 +6,6 @@
     class="icon"
   >
     <v-icon
-      size="45"
       class="showIcon"
       :aria-label="ariaLabel"
       :name="name"
@@ -18,7 +17,6 @@
   </a>
   <nuxt-link v-else :to="link" :aria-label="ariaLabel" class="icon">
     <v-icon
-      size="45"
       class="showIcon"
       :aria-label="ariaLabel"
       :name="name"
@@ -29,17 +27,6 @@
     <span class="showText" :aria-label="ariaLabel">{{ label }}</span>
   </nuxt-link>
 </template>
-<style scoped>
-.icon {
-  padding: 10px;
-  text-align: center;
-  text-decoration: none;
-  color: none;
-}
-.theme--light.v-icon {
-  color: #ffffff;
-}
-</style>
 <script>
 export default {
   props: {

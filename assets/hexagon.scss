@@ -100,6 +100,14 @@ $hex-transition: all 0.2s ease;
         margin: 0;
         width: 100%;
       }
+      &.shrunk {
+        .hexagon {
+          height: 10%;
+          .showIcon > * {
+            transform: scale(0.75);
+          }
+        }
+      }
       padding: 0;
     }
   }
@@ -141,15 +149,17 @@ $hex-transition: all 0.2s ease;
   justify-content: center;
   position: relative;
   transition: $hex-transition;
-
-  opacity: 0.8;
   .showText {
     display: none;
+  }
+  .showIcon > * {
+    transform: scale(1.5);
   }
   @media only screen and (min-width: $lg-min-width) {
     height: hex-height(lg);
     width: hex-width(lg);
     margin: hex-border(lg) 0;
+    opacity: 0.8;
   }
   @media only screen and (max-width: $md-max-width) {
     height: hex-height(md);

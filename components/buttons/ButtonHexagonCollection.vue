@@ -1,9 +1,17 @@
 <template>
-  <div :class="split ? 'sticky-container row' : 'p-container row'">
+  <div
+    v-scroll="onScroll"
+    :class="{
+      'sticky-container row': split,
+      'p-container row': !split,
+    }"
+  >
     <div
-      :class="
-        split ? 'hexagon-container split col-lg-3' : 'hexagon-container my-auto'
-      "
+      :class="{
+        'hexagon-container split col-lg-3': split,
+        'hexagon-container my-auto': !split,
+        shrunk: shrunk,
+      }"
     >
       <slot :splitHexagon="splitHexagon" :uniteHexagon="uniteHexagon"></slot>
     </div>
@@ -24,6 +32,8 @@ export default {
   data() {
     return {
       split: this.splitMode,
+      shrunk: false,
+      lastScrollPosition: 0,
     }
   },
   methods: {
@@ -34,6 +44,20 @@ export default {
     splitHexagon() {
       this.split = true
       this.$emit('split', true)
+    },
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 60) {
+        return
+      }
+      if (this.split) {
+        this.shrunk = currentScrollPosition >= this.lastScrollPosition
+        this.lastScrollPosition = currentScrollPosition
+      }
     },
   },
 }
