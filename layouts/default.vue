@@ -7,7 +7,11 @@
         'mr-0': true,
       }"
     >
-      <v-col :lg="splitMode ? 3 : 12" :cols="12">
+      <v-col
+        :lg="splitMode ? 3 : 12"
+        :cols="12"
+        :class="{ 'min-md-height': splitMode }"
+      >
         <div :class="{ 'sticky-container': splitMode }">
           <v-container
             :class="{
@@ -72,7 +76,7 @@
         :class="{ 'mobile-none': splitMode }"
         vertical
       ></v-divider>
-      <v-col>
+      <v-col :class="{ 'h-100': splitMode }">
         <v-main v-if="splitMode">
           <v-container fluid>
             <router-view></router-view>
