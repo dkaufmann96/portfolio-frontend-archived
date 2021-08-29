@@ -1,8 +1,8 @@
 <template>
-  <v-flex v-if="page" class="px-sm-10" md6>
+  <v-flex v-if="page" class="px-sm-10" md9>
     <h1 class="text-h3 mb-10">{{ page.title }}</h1>
     <!-- eslint-disable vue/no-v-html -->
-    <div id="page" class="text-body-1" v-html="content"></div>
+    <div id="page" class="page-text" v-html="content"></div>
   </v-flex>
 </template>
 <script>

@@ -19,11 +19,11 @@
               'd-flex flex-column align-sm-center': !splitMode,
             }"
           >
-            <h1 class="text-h4 mb-2">Daniel Kaufmann</h1>
-            <h2 class="text-h6 mb-2">
+            <h1 class="page-text-h4 mb-2">Daniel Kaufmann</h1>
+            <h2 class="page-text-h6 mb-2">
               Software Engineer based in Vienna, Austria
             </h2>
-            <p class="text-body-1 mb-2">
+            <p class="page-text mb-2">
               Hi, my name is Daniel and this is my personal web page. Take a
               look around to learn more about me and my work!
             </p>
@@ -71,14 +71,9 @@
           </v-container>
         </div>
       </v-col>
-      <v-divider
-        v-if="splitMode"
-        :class="{ 'mobile-none': splitMode }"
-        vertical
-      ></v-divider>
       <v-col :class="{ 'h-100': splitMode }">
         <v-main v-if="splitMode">
-          <v-container fluid>
+          <v-container fluid class="ml-6">
             <router-view></router-view>
           </v-container>
         </v-main>

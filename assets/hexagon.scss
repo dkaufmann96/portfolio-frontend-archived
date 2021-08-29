@@ -1,9 +1,9 @@
 /* Change this to change the appearance of the hexaons */
 $hex-width: (
-  lg: 120px,
-  md: 120px,
-  sm: 100px,
-  xs: 70px,
+  lg: 130px,
+  md: 130px,
+  sm: 150px,
+  xs: 100px,
 );
 $hex-between: (
   lg: 5px,
@@ -12,10 +12,10 @@ $hex-between: (
   xs: 5px,
 );
 $hex-icon: (
-  lg: 50px,
-  md: 50px,
+  lg: 90px,
+  md: 90px,
   sm: 40px,
-  xs: 15px,
+  xs: 40px,
 );
 
 @function hex-width($size) {
@@ -27,14 +27,17 @@ $hex-icon: (
 @function hex-icon($size) {
   @return map-get($hex-icon, $size);
 }
-@function hex-height($size) {
-  @return calc(#{hex-width($size) / 1.73});
+@function hex-height($size, $screen) {
+  @if ($screen == 'xs') {
+    @return calc(#{hex-width($size) / 1.73});
+  }
+  @return calc(#{hex-width($size) / 1.63});
 }
 @function hex-margin($size) {
   @return calc(#{hex-width($size) / 2});
 }
 @function hex-border($size) {
-  @return calc(#{hex-margin($size) / 1.73});
+  @return calc(#{hex-margin($size) / 1.63});
 }
 @function grid-auto-rows($size) {
   @return calc(#{hex-width($size) - 28.87px / 2});
@@ -153,26 +156,26 @@ $hex-transition: all 0.2s ease;
     display: none;
   }
   .showIcon > * {
-    transform: scale(1.5);
+    transform: scale(2);
   }
   @media only screen and (min-width: $lg-min-width) {
-    height: hex-height(lg);
+    height: hex-height(lg, 'lg');
     width: hex-width(lg);
     margin: hex-border(lg) 0;
     opacity: 0.8;
   }
   @media only screen and (max-width: $md-max-width) {
-    height: hex-height(md);
+    height: hex-height(md, 'md');
     width: hex-width(md);
     margin: hex-border(md) 0;
   }
   @media only screen and (max-width: $sm-max-width) {
-    height: hex-height(sm);
+    height: hex-height(sm, 'sm');
     width: hex-width(sm);
     margin: hex-border(sm) 0;
   }
   @media only screen and (max-width: $xs-max-width) {
-    height: hex-height(xs);
+    height: hex-height(xs, 'xs');
     width: hex-width(xs);
     margin: hex-border(xs) 0;
   }

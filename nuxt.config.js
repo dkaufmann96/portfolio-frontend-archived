@@ -8,7 +8,7 @@ export default {
     titleTemplate: '%s - ' + process.env.DEFAULT_TITLE,
     title: process.env.DEFAULT_TITLE || '',
     htmlAttrs: {
-      lang: 'de'
+      lang: 'de',
     },
     meta: [
       { charset: 'utf-8' },
@@ -16,13 +16,13 @@ export default {
       {
         hid: 'description',
         name: 'description',
-        content: process.env.npm_package_description || ''
-      }
+        content: process.env.npm_package_description || '',
+      },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   env: {
-    strapiBaseUri: process.env.API_URL || 'http://localhost:1337'
+    strapiBaseUri: process.env.API_URL || 'http://localhost:1337',
   },
   /*
    ** Customize the progress-bar color
@@ -43,7 +43,7 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     '@nuxtjs/vuetify',
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
    ** Nuxt.js modules
@@ -58,16 +58,16 @@ export default {
     'nuxt-webfontloader',
     '@nuxtjs/sitemap',
     '@nuxtjs/apollo',
-    '@nuxtjs/markdownit'
+    '@nuxtjs/markdownit',
   ],
   render: {
     static: {
-      maxAge: 31536000 // 1 year
-    }
+      maxAge: 31536000, // 1 year
+    },
   },
   sitemap: {
     hostname: 'https://danielkaufmann.at',
-    gzip: true
+    gzip: true,
   },
   /*
    ** Axios module configuration
@@ -81,29 +81,30 @@ export default {
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
     defaultAssets: {
-      icons: false
-    }
+      icons: false,
+    },
   },
   pwa: {
     meta: {
-      name: process.env.DEFAULT_TITLE
-    }
+      name: process.env.DEFAULT_TITLE,
+    },
   },
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: process.env.BACKEND_URL || 'http://localhost:1337/graphql'
-      }
-    }
+        httpEndpoint:
+          process.env.BACKEND_URL || 'http://localhost:1337/graphql',
+      },
+    },
   },
   'google-gtag': {
     id: 'UA-148069913-1',
     config: {
       anonymize_ip: true, // anonymize IP
-      send_page_view: false // might be necessary to avoid duplicated page track on page reload
+      send_page_view: false, // might be necessary to avoid duplicated page track on page reload
     },
     debug: false, // enable to track in dev mode
-    disableAutoPageTrack: false // disable if you don't want to track each page route with router.afterEach(...).
+    disableAutoPageTrack: false, // disable if you don't want to track each page route with router.afterEach(...).
   },
   /*
    ** Build configuration
@@ -115,21 +116,21 @@ export default {
     // eslint-disable-next-line no-unused-vars
     extend(config, ctx) {},
     analyze: false,
-    extractCSS: true
+    extractCSS: true,
   },
   markdownit: {
     preset: 'default',
     linkify: true,
     breaks: true,
-    injected: true
+    injected: true,
   },
   router: {
     extendRoutes(routes, resolve) {
       routes.push({
         name: 'custom',
         path: '*',
-        component: resolve(__dirname, 'components/Page.vue')
+        component: resolve(__dirname, 'components/Page.vue'),
       })
-    }
-  }
+    },
+  },
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="page-text">
     <p><b>Work in Progress</b></p>
     <p>Einige meiner privaten Projekte sind auf Github veröffentlicht.</p>
   </div>
