@@ -110,6 +110,7 @@ import {
   mdiLinkedin,
   mdiGitlab,
   mdiTwitter,
+  mdiFileDocument,
 } from '@mdi/js'
 
 export default {
@@ -149,6 +150,12 @@ export default {
           label: 'Impressum',
           icon: mdiInformationVariant,
           link: '/imprint',
+        },
+        cv: {
+          name: 'cv',
+          label: 'CV',
+          icon: mdiFileDocument,
+          link: '/cv',
         },
       },
       socials: {

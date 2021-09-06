@@ -302,6 +302,15 @@ $hex-transition: all 0.2s ease;
   border-bottom-color: $color-imprint;
 }
 
+.color-cv {
+  background-color: $color-cv;
+}
+.color-cv::after,
+.color-cv::before {
+  border-top-color: $color-cv;
+  border-bottom-color: $color-cv;
+}
+
 .color-darkmode-light {
   background-color: $color-darkmode-light;
 }
