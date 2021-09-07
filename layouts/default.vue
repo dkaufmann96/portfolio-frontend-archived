@@ -15,10 +15,15 @@
         <div :class="{ 'sticky-container': splitMode }">
           <v-container
             :class="{
-              'mobile-none': splitMode,
-              'd-flex flex-column align-sm-center': !splitMode,
+              'd-md-flex flex-column align-center text-center mobile-none': splitMode,
+              'd-flex flex-column align-center text-center': !splitMode,
             }"
           >
+            <v-avatar color="primary" size="150"
+              ><img
+                src="https://api.danielkaufmann.at/uploads/profile_fa67fd51fb.jpeg"
+                alt="Daniel"
+            /></v-avatar>
             <h1 class="page-text-h4 mb-2">Daniel Kaufmann</h1>
             <h2 class="page-text-h6 mb-2">
               Software Engineer based in Vienna, Austria
@@ -73,7 +78,7 @@
       </v-col>
       <v-col :class="{ 'h-100': splitMode }">
         <v-main v-if="splitMode">
-          <v-container fluid class="ml-6">
+          <v-container fluid class="ml-md-6">
             <router-view></router-view>
           </v-container>
         </v-main>
